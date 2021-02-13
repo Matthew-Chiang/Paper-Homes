@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import ChartistGraph from 'react-chartist'
 import face3 from "../assets/img/faces/face-1.jpg"
+import hand1 from "../assets/img/hands/HandsShow.png"
+
 
 class Dashboard extends Component {
   render() {
@@ -8,7 +10,7 @@ class Dashboard extends Component {
     return (
       <div className="content">
         <div className="container-fluid">
-          <div className="row"><h2 className="section-title">Addresses</h2></div>
+          <div className="row"><h2 className="section-title">My Address</h2></div>
           <div className="row">
             <div className="col-md-10">
               <div className="card ">
@@ -45,7 +47,7 @@ class Dashboard extends Component {
               <div className="card">
                 <div className="row">
                   <div className="col-md-2">
-                  <img className="avatar border-gray" src={face3} alt="..." />
+                  <img className="avatar border-gray" src={hand1} alt="..." />
                   
                   </div>
                   <div className="col-md-8">

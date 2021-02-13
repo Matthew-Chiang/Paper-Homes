@@ -32,6 +32,13 @@ class Sidebar extends Component {
             </li>
 
           </ul>
+          <div className="bottomleft">
+            <div className="log-out">
+            <Link className="nav-link" to='/'>
+              <span className="no-icon">Log out</span>
+            </Link>
+            </div>
+          </div>
         </div>
       </div>
     )

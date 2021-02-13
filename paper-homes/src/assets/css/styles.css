@@ -4,13 +4,24 @@ b {
 }
 
 .section-title{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: 800;
+    background: linear-gradient(to right, #003077 0%, #B4D2FF 100%);
+    -webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
 .bottomright {
     position: absolute;
     bottom: 16px;
     right: 16px;
+    font-size: 18px;
+}
+
+.bottomleft {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
     font-size: 18px;
 }
 
