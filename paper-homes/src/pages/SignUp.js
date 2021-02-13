@@ -5,6 +5,7 @@ import SignUpPage2 from '../components/SignUp2'
 import SignUpPage3 from '../components/SignUp3';
 import SignUpPage4 from '../components/SignUp4'
 import SignUpPage5 from '../components/SignUp5'
+import DonorSignUpPage2 from '../components/DonorSignUp2';
 import SignUpLogin from '../components/SignUpLogin';
 
 export default function ButtonAppBar() {
@@ -24,6 +25,8 @@ export default function ButtonAppBar() {
                 return <SignUpPage4 page={page} setPage={setPage} data={data} setData={setData}/>;
             case 'page5':
                 return <SignUpPage5 page={page} setPage={setPage} data={data} setData={setData}/>;
+            case 'donorpage2':
+                return <DonorSignUpPage2 page={page} setPage={setPage} data={data} setData={setData}/>;
         }
     };
 
