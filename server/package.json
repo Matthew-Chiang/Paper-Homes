@@ -7,8 +7,11 @@
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
     "debug": "~2.6.9",
     "express": "~4.16.1",
+    "firebase": "^8.2.7",
+    "firebase-admin": "^9.5.0",
     "morgan": "~1.9.1"
   }
 }
