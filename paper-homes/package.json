@@ -12,6 +12,7 @@
     "axios": "^0.21.1",
     "date-fns": "^2.17.0",
     "chartist": "^0.11.4",
+    "firebase": "^8.2.7",
     "react": "^17.0.1",
     "react-chartist": "^0.14.4",
     "react-dom": "^17.0.1",

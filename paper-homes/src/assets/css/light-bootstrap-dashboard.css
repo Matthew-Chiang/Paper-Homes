@@ -213,12 +213,12 @@ body,
 }
 
 a {
-    color: #1DC7EA;
+    color: #dcf9ff;
 }
 
 a:hover,
 a:focus {
-    color: #42d0ed;
+    color: #dcf9ff;
     text-decoration: none;
 }
 
@@ -2878,6 +2878,19 @@ Copyright (c) 2015 Daniel Eden
     display: block;
     margin-left: auto;
     margin-right: auto;
+    /*margin-top: 30px;*/
+}
+
+.card .avatar {
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /*padding: 10px;*/
     /*margin-top: 30px;*/
 }
 
