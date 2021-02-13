@@ -11,8 +11,11 @@
     "@testing-library/user-event": "^12.7.0",
     "axios": "^0.21.1",
     "date-fns": "^2.17.0",
+    "chartist": "^0.11.4",
     "react": "^17.0.1",
+    "react-chartist": "^0.14.4",
     "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.2",
     "web-vitals": "^1.1.0"
   },

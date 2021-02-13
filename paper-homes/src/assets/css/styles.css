@@ -1,0 +1,26 @@
+
+b {
+    font-weight: bold;
+}
+
+.section-title{
+    font-weight: 800;
+}
+
+.bottomright {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    font-size: 18px;
+}
+
+.topright {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 18px;
+}
+
+.center{
+    text-align: center;
+}
