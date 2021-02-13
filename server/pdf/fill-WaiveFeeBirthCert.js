@@ -1,16 +1,16 @@
 const { PDFDocument } = require("pdf-lib");
 const fs = require("fs");
 
-parsePDF().catch((err) => console.log(err));
+// parsePDF("Charles Boyle").catch((err) => console.log(err));
 
-async function parsePDF() {
+async function parsePDF(name) {
     const pdfForm = fs.readFileSync("../pdfForms/WaiveFeeBirthCert.pdf");
 
     const pdfDoc = await PDFDocument.load(pdfForm, { ignoreEncryption: true });
 
     const page = pdfDoc.getPage(1);
 
-    page.drawText("Charles Boyle", {
+    page.drawText(name, {
         x: 75,
         y: 555,
         size: 12,
@@ -32,9 +32,11 @@ async function parsePDF() {
 
     const pdfBytes = await pdfDoc.save();
 
-    let writeStream = fs.createWriteStream("./temp/filename.pdf");
+    let writeStream = fs.createWriteStream("./temp/waiveFeeBirthCert.pdf");
 
     writeStream.write(pdfBytes, "base64");
 
     writeStream.end();
 }
+
+module.exports = parsePDF;
