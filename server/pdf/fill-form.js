@@ -19,13 +19,9 @@ async function parsePDF() {
 
     const pdfBytes = await pdfDoc.save();
 
-    let writeStream = fs.createWriteStream("filename.pdf");
+    let writeStream = fs.createWriteStream(".temp/filename.pdf");
 
     writeStream.write(pdfBytes, "base64");
-
-    writeStream.on("finish", () => {
-        console.log("saved");
-    });
 
     writeStream.end();
 }
