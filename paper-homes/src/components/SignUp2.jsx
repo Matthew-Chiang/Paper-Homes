@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Button } from "@material-ui/core";
 import axios from "axios";
@@ -46,31 +46,29 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function SignUpPage2({page, setPage}) {
+export default function SignUpPage2({page, setPage, data, setData}) {
     const classes = useStyles();
 
-    const [data, setData] = useState({});
+    // const [data, setData] = useState();
+    // const [key, setKey] = useState();
+    
+    const [value, setValue] = useState('');
+
+    // setData({...data, ['mailAddress']: value})
+
+    useEffect(() => {
+        setData({...data, 'mailAddress': value});
+    },[]);
 
     const writeUserData = (key, dataValue) => {
         setData({ ...data, [key]: dataValue });
+        setValue(dataValue);    
     };
-    // const [state, setState] = React.useState({
-    //     age: '',
-    //     name: 'hai',
-    //   });
-    
-    //   const handleChange = (event) => {
-    //     const name = event.target.name;
-    //     setState({
-    //       ...state,
-    //       [name]: event.target.value,
-    //     });
-    //   };
 
     const saveForm = () => {
         axios
-            .put(`http://localhost:5000/user`, {
-                ...data,
+            .post(`http://localhost:5000/user`, {
+               ...data
             })
             .then((res) => {
                 console.log(res);
@@ -96,14 +94,10 @@ export default function SignUpPage2({page, setPage}) {
                 <InputLabel htmlFor="outlined-age-native-simple">Mail Forwarding Location</InputLabel>
                 <Select
                     native
-                    value={data}
+                    value={value}
                     onChange={(event) => {
                         writeUserData("mailAddress", event.target.value);}}
                     label="Mail Forwarding Location"
-                    // inputProps={{
-                    //     name: 'age',
-                    //     id: 'outlined-age-native-simple',
-                    // }}
                     >
                     <option aria-label="None" value="" />
                     <option value={10}>Ten</option>

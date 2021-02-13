@@ -1,15 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Button } from "@material-ui/core";
 import axios from "axios";
 import 'date-fns';
-import Select from '@material-ui/core/Select';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import FormLabel from '@material-ui/core/FormLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import Checkbox from '@material-ui/core/Checkbox';
 
 const useStyles = makeStyles((theme) => ({
@@ -29,7 +26,6 @@ const useStyles = makeStyles((theme) => ({
         width: 200,
     },
     formControl: {
-        // margin: theme.spacing(1),
         minWidth: '400px',
     },
     nextButton: {
@@ -41,27 +37,22 @@ const useStyles = makeStyles((theme) => ({
         width: '150px',
         '&:hover': {
             backgroundColor: '#1A2F4F',
-            // borderColor: '#0062cc',
             boxShadow: 'none',
           },
         '&:active': {
         boxShadow: 'none',
         },
     },
-    // checkboxForm: {
-    //     padding:'20px',
-    // },
     formControl: {
-        margin: theme.spacing(3),
         padding:'20px 40px',
         boxShadow: '0.5px 0.5px 10px 0.5px #888888'
     },
 }));
 
-export default function SignUpPage3({page, setPage}) {
+export default function SignUpPage3({page, setPage, data, setData}) {
     const classes = useStyles();
 
-    const [data, setData] = useState({});
+    // const [data, setData] = useState({});
 
     const [state, setState] = React.useState({
         passport: false,
@@ -71,21 +62,26 @@ export default function SignUpPage3({page, setPage}) {
         calid: false,
         none: false
       });
+
+    useEffect(() => {
+        setData({...data, ['passport']: false});
+        setData({...data, ['drivers']: false});
+        setData({...data, ['birthCert']: false});
+        setData({...data, ['ssn']: false});
+        setData({...data, ['calid']: false});
+        setData({...data, ['none']: false});
+    },[]);
     
-      const handleChange = (event) => {
-        setState({ ...state, [event.target.name]: event.target.checked });
-      };
-
-      const { passport, drivers, birthCert, ssn , calid, none} = state;
-      const error = [passport, drivers, birthCert, ssn, calid, none].filter((v) => v).length !== 0;
-
     const writeUserData = (key, dataValue) => {
         setData({ ...data, [key]: dataValue });
+        setState({ ...state, [key]: dataValue });
     };
+
+      const { passport, drivers, birthCert, ssn , calid, none} = state;
 
     const saveForm = () => {
         axios
-            .put(`http://localhost:5000/user`, {
+            .post(`http://localhost:5000/user`, {
                 ...data,
             })
             .then((res) => {
@@ -100,7 +96,7 @@ export default function SignUpPage3({page, setPage}) {
     const goBack = () => {
         setPage('page2')
     }
-
+    
     return (
         <div>
             <div>
@@ -108,30 +104,36 @@ export default function SignUpPage3({page, setPage}) {
                 <p>Don’t worry if you don’t have an ID, we can still match <br/> you with an address and help you get one.</p>
             </div>
             <div className={classes.checkboxForm}>
-            <FormControl required error={error} component="fieldset" className={classes.formControl}>
+            <FormControl required component="fieldset" className={classes.formControl}>
                 <FormGroup>
                 <FormControlLabel
-                    control={<Checkbox checked={passport} onChange={handleChange} name="passport" />}
+                    control={<Checkbox checked={passport} onChange={(event) => {
+                        writeUserData(event.target.name, event.target.checked);}} name="passport" />}
                     label="Passport"
                 />
                 <FormControlLabel
-                    control={<Checkbox checked={drivers} onChange={handleChange} name="drivers" />}
+                    control={<Checkbox checked={drivers} onChange={(event) => {
+                        writeUserData(event.target.name, event.target.checked);}} name="drivers" />}
                     label="Driver's Lisence"
                 />
                 <FormControlLabel
-                    control={<Checkbox checked={birthCert} onChange={handleChange} name="birthCert" />}
+                    control={<Checkbox checked={birthCert} onChange={(event) => {
+                        writeUserData(event.target.name, event.target.checked);}} name="birthCert" />}
                     label="Birth Certificate"
                 />
                 <FormControlLabel
-                    control={<Checkbox checked={ssn} onChange={handleChange} name="ssn" />}
+                    control={<Checkbox checked={ssn} onChange={(event) => {
+                        writeUserData(event.target.name, event.target.checked);}} name="ssn" />}
                     label="SSN"
                 />
                 <FormControlLabel
-                    control={<Checkbox checked={calid} onChange={handleChange} name="calid" />}
+                    control={<Checkbox checked={calid} onChange={(event) => {
+                        writeUserData(event.target.name, event.target.checked);}} name="calid" />}
                     label="California ID Card"
                 />
                 <FormControlLabel
-                    control={<Checkbox checked={none} onChange={handleChange} name="none" />}
+                    control={<Checkbox checked={none} onChange={(event) => {
+                        writeUserData(event.target.name, event.target.checked);}} name="none" />}
                     label="None"
                 />
                 </FormGroup>

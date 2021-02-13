@@ -60,13 +60,13 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function SignUpLogin({page, setPage}) {
+export default function SignUpLogin({page, setPage, data, setData}) {
     const classes = useStyles();
 
-    const [data, setData] = useState({});
     const [value, setValue] = useState('recepient');
+    const [btnDisabled, setBtnDisabled] = useState(true);
 
-    data['type'] = value
+    // setData({...data, ['type']: value});
 
     const writeUserData = (key, dataValue) => {
         setData({ ...data, [key]: dataValue });
@@ -74,7 +74,14 @@ export default function SignUpLogin({page, setPage}) {
             setValue(dataValue);
         }
         console.log(data)
+        if (key == 'email') {
+           setBtnDisabled(!dataValue)
+        }
     };
+
+    useEffect((value) => {
+        setData({...data, 'type': 'recepient'});
+    },[]);
 
     const saveForm = () => {
         console.log(data)
@@ -82,11 +89,13 @@ export default function SignUpLogin({page, setPage}) {
             .post(`http://localhost:5000/user`, data)
             .then((res) => {
                 console.log(res);
+                if (data['type'] == 'recepient'){
+                    setPage('page2')
+                } else {setPage('donorpage2')}
             })
             .catch((e) => {
                 console.log(e);
             });
-        setPage('page2')
     };
 
     return (
@@ -174,7 +183,7 @@ export default function SignUpLogin({page, setPage}) {
             </div>
             <p className={classes.note}>Note: You must be located in California to be eligible to receive/donate an address.</p>
             <div className={classes.nextButtonDiv}> 
-                <Button variant="contained" onClick={saveForm} className={classes.nextButton}>
+                <Button variant="contained" onClick={saveForm} className={classes.nextButton} disabled={btnDisabled}>
                     Sign Up
                 </Button>
             </div>
