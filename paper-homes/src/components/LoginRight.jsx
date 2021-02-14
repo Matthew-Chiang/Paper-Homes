@@ -105,7 +105,7 @@ export default function LoginRight({data, setData}) {
     return (
         <div className={classes.signup}>
             <div>
-                <h1 className={classes.title}>Login</h1>
+                <h1 style={{padding:'1px'}}>Login</h1>
             </div>
             <div>
                 <TextField
