@@ -57,7 +57,15 @@ const useStyles = makeStyles((theme) => ({
         },
     note: {
             marginTop: '-5px',
-            fontSize: 14
+            fontSize: 14,
+            color: 'black',
+        textDecoration: 'underline',
+        '&:hover': {
+            color: '#ACACAC',
+            textDecoration: 'underline',
+            // borderColor: '#0062cc',
+            // boxShadow: 'none',
+          },
     }
 }));
 
@@ -101,10 +109,10 @@ export default function SignUpPage2({page, setPage, data, setData}) {
     return (
         <div className={classes.donorPage1}>
             <div>
-                <h1>Hi Jane! Please let us know the address you <br/>would like to donate.</h1>
+                <h1 style={{textAlign:'center'}}>Hi Jane! Please let us know the address you <br/>would like to donate.</h1>
             </div>
             <div>
-            <div>
+            <div style={{textAlign:'center'}}> 
                 <TextField
                     required
                     id="standard-required"
@@ -117,7 +125,7 @@ export default function SignUpPage2({page, setPage, data, setData}) {
                     className={classes.text1}
                 />
             </div>
-            <div>
+            <div style={{textAlign:'center'}}>
                 <TextField
                     required
                     id="standard-required"
@@ -139,7 +147,7 @@ export default function SignUpPage2({page, setPage, data, setData}) {
                     className={classes.text2}
                 />
             </div>
-            <div>
+            <div style={{textAlign:'center'}}>
                 <TextField
                     disabled
                     id="standard-disabled"
@@ -158,19 +166,21 @@ export default function SignUpPage2({page, setPage, data, setData}) {
                 />
             </div>
             </div>
-            <div>  
+            <div style={{textAlign:'center'}}>  
                 <a href="/" className={classes.note}>Have multiple addresses to donate?</a>
             </div>
-            <div className={classes.nextButtonDiv}> 
+            <div className={classes.nextButtonDiv} style={{textAlign:'center'}}> 
                 <Button variant="contained" onClick={saveForm} className={classes.nextButton}>
                     Next
                 </Button>
             </div>
-            <Button
-                // className={classes.button}
-                startIcon={<ArrowBackIcon />}
-                onClick={goBack}
-            >Back</Button>
+            <div style={{textAlign:'center'}}>
+                <Button
+                    // className={classes.button}
+                    startIcon={<ArrowBackIcon />}
+                    onClick={goBack}
+                >Back</Button>
+            </div>
         </div>
     );
 }

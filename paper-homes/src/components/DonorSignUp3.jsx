@@ -76,7 +76,15 @@ const useStyles = makeStyles((theme) => ({
     },
     note: {
         marginTop: '-5px',
-        fontSize: 14
+        fontSize: 14,
+        color: 'black',
+        textDecoration: 'underline',
+        '&:hover': {
+            color: '#ACACAC',
+            textDecoration: 'underline',
+            // borderColor: '#0062cc',
+            // boxShadow: 'none',
+          },
     }
 }));
 
@@ -120,8 +128,8 @@ export default function SignUpPage2({page, setPage, data, setData}) {
     return (
         <div className={classes.donorPage1}>
             <div>
-                <h1>We'd like to verify your address.</h1>
-                <p> Please upload a copy of your property deed below.</p>
+                <h1 style={{textAlign:'center'}}>We'd like to verify your address.</h1>
+                <p style={{textAlign:'center'}}> Please upload a copy of your property deed below.</p>
             </div>
             <div className={classes.main}>
             <div className={classes.fileCard}>
@@ -129,20 +137,23 @@ export default function SignUpPage2({page, setPage, data, setData}) {
             <FileUpload />
             </div>
             </div>
-            <div>
-                <a href="/" className={classes.note}>Have an ID with your address instead?</a>
+            <div style={{textAlign:'center'}}>
+                <a href="/" className={classes.note} >Have an ID with your address instead?</a>
             
             </div>
-            <div className={classes.nextButtonDiv}> 
+            <div className={classes.nextButtonDiv} style={{textAlign:'center'}}> 
                 <Button variant="contained" onClick={saveForm} className={classes.nextButton}>
                     Next
                 </Button>
             </div>
-            <Button
-                // className={classes.button}
-                startIcon={<ArrowBackIcon />}
-                onClick={goBack}
-            >Back</Button>
+            <div style={{textAlign:'center'}}>
+                <Button
+                    // className={classes.button}
+                    startIcon={<ArrowBackIcon />}
+                    onClick={goBack}
+                >Back</Button>
+            </div>
+            
         </div>
     );
 }

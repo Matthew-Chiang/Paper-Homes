@@ -7,6 +7,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import AddressOptions from '../json/mailOptions'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -99,10 +100,9 @@ export default function SignUpPage2({page, setPage, data, setData}) {
                         writeUserData("mailAddress", event.target.value);}}
                     label="Mail Forwarding Location"
                     >
-                    <option aria-label="None" value="" />
-                    <option value={10}>Ten</option>
-                    <option value={20}>Twenty</option>
-                    <option value={30}>Thirty</option>
+                    {AddressOptions.options.map((address, i) => {     
+                        return (<option value={address}>{address}</option>) 
+                    })}
                 </Select>
             </FormControl>
             </div>
