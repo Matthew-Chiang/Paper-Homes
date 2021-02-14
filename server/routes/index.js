@@ -48,7 +48,16 @@ async function addUserData(db, data) {
   await docRef.set(data);
 }
 
-
+async function quickstartListen(db) {
+  // [START quickstart_listen]
+  // [START firestore_setup_dataset_read]
+  const snapshot = await db.collection('users').get();
+  snapshot.forEach((doc) => {
+    console.log(doc.id, '=>', doc.data());
+  });
+  // [END firestore_setup_dataset_read]
+  // [END quickstart_listen]
+}
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -64,16 +73,27 @@ router.post('/user', function(req, res, next) {
   res.send("user");
 
   
-  /* GET user page. */
+  
 });
-  router.get('/user', function(req, res, next) {
+router.get("/user/:user_id", function (req, res, next) {
+  const user_id = req.params.user_id;
+  data = req.body;
+  console.log(data);
+
+  quickstartListen(db, data);
+  res.send("user");
+});
+/* GET user page. */
+/*
+router.getuser('/user', function(req, res, next) {
   data = req.body
   console.log(data);
 
-  addUserData(db, data)
+  quickstartListen(db)
   res.send("user");
 
 });
+*/
 
 // /* GET home page. */
 // router.put('/user', function(req, res, next) {

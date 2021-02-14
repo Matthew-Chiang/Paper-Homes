@@ -14,7 +14,7 @@ class Main extends Component {
                 <Sidebar />
                 <div className="main-panel">
                     <div>
-                        <Navbar />
+                        
                         <Switch>
                             <Route
                                 exact
@@ -27,7 +27,7 @@ class Main extends Component {
                                 component={UserProfile}
                             />
                         </Switch>
-                        <Footer />
+                        
                     </div>
                 </div>
             </div>
