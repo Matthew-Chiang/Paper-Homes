@@ -10,6 +10,8 @@ import PopupExpiry from "../components/PopupExpiry";
 import axios from "axios";
 import { Button, colors } from "@material-ui/core";
 
+import { Alert, AlertTitle } from '@material-ui/lab';
+
 
 import PopupDonor from "../components/PopupDonor";
 
@@ -73,7 +75,7 @@ class Dashboard extends Component {
                 <div className="row">
                   <div className="col-md-10">
                     <div className="card ">
-                      <div className="card-main-address ">
+                      <div className="card-main-address" style={{paddingBottom:'20px'}}>
                         <h3 className="card-title">
                           <b>{user.addressStreet}</b>
                         </h3>
@@ -81,6 +83,17 @@ class Dashboard extends Component {
                         {console.log(user.addressCity)}
                           {user.addressCity}, California, USA <br /> {user.addressZip}
                         </p>
+                        {!user.none ? null: 
+                        
+                            <div>
+                                <Alert severity="warning">
+                                    <AlertTitle>Note</AlertTitle>
+                                    You have not provided us an ID yet. That's ok! You can use the provided address for 6 months to get the necessary ID — <strong>Please note, in order to renew your address, you must provide one form of ID you received from using this address</strong>
+                                </Alert>
+                                {/* <p>NOTE: You have not provided us an ID yet. That's ok, you can use the provided address for 6 months to get the necessary ID.</p> */}
+                            </div>
+                        }
+                        
                       </div>
                     </div>
                     <div className="topright">
