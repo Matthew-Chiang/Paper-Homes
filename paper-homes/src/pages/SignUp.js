@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 // import Navbar from "../components/NavBar";
-
+import Login from "../components/Login"
 import SignUpPage2 from "../components/SignUp2";
 import SignUpPage3 from "../components/SignUp3";
 import SignUpPage4 from "../components/SignUp4";

@@ -10,25 +10,41 @@ import {
     Switch,
 } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
-import Main from "./components/Main";
+import MainProfile from "./pages/MainProfile";
+
+import MainDashboard from "./pages/MainDashboard";
+import Login from "./components/Login"
 import { UserProvider } from "./context/userContext";
+import { UserContext } from "./context/userContext";
 
 class App extends Component {
     render() {
         return (
             <UserProvider>
-                <div className="wrapper">
-                    <Router>
-                        <Switch>
-                            <Route exact path="/signup">
-                                <SignUp />
-                            </Route>
-                            <Route path="/home">
-                                <Main />
-                            </Route>
-                        </Switch>
-                    </Router>
-                </div>
+                <UserContext.Consumer>
+                {({ user, setUser }) => (
+                    <div className="wrapper">
+                        <Router>
+                            <Switch>
+                                <Route exact path="/">
+                                        <Login 
+                                            data={user}
+                                            setData={setUser}/>
+                                </Route>
+                                <Route exact path="/signup">
+                                    <SignUp />
+                                </Route>
+                                <Route path="/dashboard">
+                                    <MainDashboard />
+                                </Route>
+                                <Route path="/profile">
+                                    <MainProfile />
+                                </Route>
+                            </Switch>
+                        </Router>
+                    </div>
+                )}
+                </UserContext.Consumer>
             </UserProvider>
         );
     }

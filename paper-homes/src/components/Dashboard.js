@@ -12,6 +12,8 @@ class Dashboard extends Component {
             <UserContext.Consumer>
                 {({ user, setUser }) => (
                     <div className="content">
+                        {console.log("asdf")}
+                        {console.log(user)}
                         <div className="container-fluid">
                             <div className="row">
                                 <h2 className="section-title">My Address</h2>
