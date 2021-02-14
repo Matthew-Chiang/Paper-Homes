@@ -6,20 +6,21 @@ import hand2 from "../assets/img/hands/HandsGive.png";
 import hand3 from "../assets/img/hands/HandsShow.png";
 import { UserContext } from "../context/userContext";
 import PopupController from "../pages/PopupController";
-import Popup1 from "../components/Popup1";
+import PopupDonor from "../components/PopupDonor";
 
 class Dashboard extends Component {
     render() {
         return (
             <UserContext.Consumer>
                 {({ user, setUser }) => (
+                    <div className="main">
                     <div className="content">
                         {console.log("asdf")}
                         {console.log(user)}
                         <div className="container-fluid">
                             <div className="row">
                                 <h2 className="section-title">My Address</h2>
-                                {/* <Popup1/> */}
+                                {/* <PopupDonor/> */}
                                 <PopupController/>
                             </div>
                             <div className="row">
@@ -29,17 +30,16 @@ class Dashboard extends Component {
                                             <h3 className="card-title">
                                                 <b>123 Somewhere Street</b>
                                             </h3>
-                                            <br />
                                             <p className="description">
                                                 San Francisco, California, USA{" "}
-                                                <br /> A1A 2B2
+                                                <br /> 941112
                                             </p>
                                         </div>
                                     </div>
                                     <div className="topright">
-                                        <div className="stats" status="purple">
+                                        <div className="stats" status="purple" style={{padding: '5px 10px'}}>
                                             <i className="fa fa-clock-o"></i>
-                                            Expires in 6 months
+                                            EXPIRES IN 6 MONTHS
                                         </div>
                                     </div>
                                     {/* 
@@ -157,6 +157,7 @@ class Dashboard extends Component {
                             </div>
                         </div>
                     </div>
+                  </div>
                   </div>
                 )}
             </UserContext.Consumer>

@@ -24,6 +24,7 @@ class UserProfile extends Component {
       }
   render() {
     return (
+      <div className="main">
       <div className="content">
         <div className="container-fluid">
           <div className="row"><h2 className="section-title">Personal Information</h2></div>
@@ -74,6 +75,7 @@ class UserProfile extends Component {
           </div>
         */}
         </div>
+      </div>
       </div>
     )
   }

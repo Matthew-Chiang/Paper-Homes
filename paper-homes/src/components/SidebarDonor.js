@@ -17,9 +17,9 @@ class Sidebar extends Component {
           <div className="sidebar-pages hcenter">
           <ul className="nav">
             <li className="nav-item">
-              <NavLink className="nav-link" to='/dashboard'>
+              <NavLink className="nav-link" to='/DonorDashboard'>
                 {/*<i className="nc-icon nc-chart-pie-35"></i>*/}
-                <p>Address and Benefits</p>
+                <p>Manage Addresses</p>
               </NavLink>
             </li>
             <li className="nav-item">

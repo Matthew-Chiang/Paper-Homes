@@ -16,7 +16,8 @@ const useStyles = makeStyles((theme) => ({
         flexWrap: 'wrap',
     },
     donorPage1: {
-        padding: '150px 0px'
+        padding: '150px 0px',
+        textAlign: 'center',
     },
     nextButton: {
         width: '50px',
