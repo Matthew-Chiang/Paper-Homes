@@ -55,6 +55,16 @@ class Dashboard extends Component {
     return(message);
   }
 
+  //to clear this, inspect element and go to Application --> Local Storage and remove the 'hasLoadedBefore' variable
+  getPopup = () => {
+    if(!localStorage.getItem('hasLoadedBefore')) {
+      localStorage.setItem('hasLoadedBefore', "yes");
+      return <PopupController />
+   }
+   return '';
+  }
+
+
   render() {
     return (
       <UserContext.Consumer>
@@ -67,7 +77,9 @@ class Dashboard extends Component {
                 <div className="row">
                   <h2 className="section-title">My Address</h2>
                   {/* <PopupDonor/> */}
-                  <PopupController />
+                  {this.getPopup()}
+
+                  {/*<PopupController />*/}
                 </div>
                 <div className="row">
                   <div className="col-md-10">
