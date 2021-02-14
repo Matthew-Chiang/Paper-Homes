@@ -91,7 +91,11 @@ export default function LoginRight({ data, setData }) {
                     console.log(user);
                     if (user.password == data.password) {
                         setData(user);
-                        history.push("/dashboard");
+                        if (data["type"] == "donor") {
+                            history.push("/donorDashboard");
+                        } else {
+                            history.push("/dashboard");
+                        }
                     } else {
                         setOpenError(true);
                     }
@@ -107,7 +111,7 @@ export default function LoginRight({ data, setData }) {
     return (
         <div className={classes.signup}>
             <div>
-                <h1 className={classes.title}>Login</h1>
+                <h1 style={{ padding: "1px" }}>Login</h1>
             </div>
             <div>
                 <TextField

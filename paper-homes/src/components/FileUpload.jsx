@@ -3,6 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Button } from "@material-ui/core";
 import axios from "axios";
 import 'date-fns';
+// import * as React from 'react'
+import CSVReader from 'react-csv-reader'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -40,6 +42,10 @@ const useStyles = makeStyles((theme) => ({
             hidden
         />
         </Button>
+        <CSVReader
+  parserOptions={{ header: true }}
+  onFileLoaded={(data, fileInfo) => console.dir(data, fileInfo)}
+/>
       </div>
     );
   }

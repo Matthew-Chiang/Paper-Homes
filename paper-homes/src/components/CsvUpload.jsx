@@ -7,7 +7,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import FileUpload from '../components/FileUpload';
+import FileUpload from './FileUpload';
 import image from '../images/send.png';
 
 const useStyles = makeStyles((theme) => ({
@@ -64,13 +64,16 @@ const useStyles = makeStyles((theme) => ({
         marginTop: '-5px',
         fontSize: 14,
         color: 'black',
+        textDecoration: 'underline',
         '&:hover': {
             color: 'black',
+            textDecoration: 'underline'
           },
+        // marginTop: "-5px"
     }
 }));
 
-export default function SignUpPage2({page, setPage, data, setData}) {
+export default function CsvUpload({page, setPage, data, setData}) {
     const classes = useStyles();
     
     const [value, setValue] = useState('');
@@ -95,18 +98,19 @@ export default function SignUpPage2({page, setPage, data, setData}) {
             .catch((e) => {
                 console.log(e);
             });
-        setPage('donorpage4')
+        setPage('donorpage3')
     };
 
     const goBack = () => {
-        setPage('donorpage2')
+        setPage('page1')
     }
 
     return (
         <div className={classes.donorPage1}>
-            <div>
-                <h1 style={{textAlign:'center'}}>We'd like to verify your address.</h1>
-                <p style={{textAlign:'center'}}> Please upload a copy of your property deed or photo of ID with an address below.</p>
+            <div style={{paddingBottom:"30px"}}>
+                <h1 style={{textAlign:'center'}}>Please upload a CSV of your properties.</h1>
+                <p style={{textAlign:'center'}}> You can upload property ownership verification afterwards.</p>
+                <a href="" className={classes.note} style={{textAlign:'center'}}>See how you can format your data.</a>
             </div>
             <div className={classes.main}>
             <div className={classes.fileCard}>
@@ -114,10 +118,6 @@ export default function SignUpPage2({page, setPage, data, setData}) {
             <FileUpload />
             </div>
             </div>
-            {/* <div style={{textAlign:'center'}}>
-                <a href="" className={classes.note} >Have an ID with your address instead? No worries! You can upload a photo of your ID too!</a>
-            
-            </div> */}
             <div className={classes.nextButtonDiv} style={{textAlign:'center'}}> 
                 <Button variant="contained" onClick={saveForm} className={classes.nextButton}>
                     Next

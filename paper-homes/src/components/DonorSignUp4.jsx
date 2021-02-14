@@ -22,7 +22,8 @@ const useStyles = makeStyles((theme) => ({
         flexWrap: 'wrap',
     },
     donorPages: {
-        padding: '150px 0px'
+        padding: '150px 0px',
+        textAlign: 'center',
     },
     textField: {
         marginLeft: theme.spacing.unit,
@@ -60,6 +61,9 @@ const useStyles = makeStyles((theme) => ({
     },
     formControl: {
         padding:'20px 10px',
+    },
+    checkboxList: {
+        alignItems: 'start',
     },
 }));
 
@@ -115,14 +119,14 @@ export default function SignUpPage3({page, setPage, data, setData}) {
             </div>
             <div className={classes.main}>
             <div className={classes.addressCard} style={{textAlign:'center'}}>
-                <h2>AddressHERE</h2>
-                <p>City, CA, USA</p>
-                <p>Zip Code</p>
+                <h2 style={{fontWeight:'bold'}}>{data['addressStreet']}ADDRESSHERE</h2>
+                <p>{data['addressCity']}City, CA, USA</p>
+                <p>{data['addressZip']}Zip Code</p>
             </div>
             <div className={classes.checkboxForm}>
             <FormControl required component="fieldset" className={classes.formControl}>
                 <FormGroup>
-                <FormControlLabel
+                <FormControlLabel className={classes.checkboxList}
                     control={<Checkbox checked={acknowledge2} onChange={(event) => {
                         writeUserData('acknowledge2', event.target.checked);}} name="acknowledge2" />}
                     label="I confirm that I have read and agree with Paper Homes’ Terms and Conditions and Privacy Policy"

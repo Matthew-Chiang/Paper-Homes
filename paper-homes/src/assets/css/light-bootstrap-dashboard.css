@@ -2953,6 +2953,11 @@ Copyright (c) 2015 Daniel Eden
     color: #4b01d1;
 }
 
+.stats[status="red"]{
+    background-color: #fdd5d5;
+    color: #d10101;
+}
+
 .stats[status="green"]{
     background-color: #E9FF93;
     color: #066a04;

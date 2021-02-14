@@ -123,7 +123,7 @@ export default function SignUpLogin({page, setPage, data, setData}) {
     return (
         <div className={classes.signup}>
             <div>
-                <h1 className={classes.title}>Sign Up</h1>
+                <h1 style={{padding: '1px'}}>Sign Up</h1>
             </div>
                 <TextField
                     required

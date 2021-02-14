@@ -20,7 +20,8 @@ const useStyles = makeStyles((theme) => ({
         flexWrap: 'wrap',
     },
     donorPage1: {
-        padding: '150px 0px'
+        padding: '150px',
+        textAlign: 'center',
     },
     // textField: {
     //     marginLeft: theme.spacing.unit,
@@ -57,15 +58,18 @@ const useStyles = makeStyles((theme) => ({
         },
     note: {
             marginTop: '-5px',
-            fontSize: 14,
-            color: 'black',
-        textDecoration: 'underline',
+            fontSize: 14
+    },
+    pageButton: {
+        textTransform:'none', 
+        textDecoration:'underline',
+        
         '&:hover': {
-            color: '#ACACAC',
-            textDecoration: 'underline',
-            // borderColor: '#0062cc',
-            // boxShadow: 'none',
-          },
+            backgroundColor: '#ffffff',
+            textDecoration:'underline', 
+            color: '#ACACAC'
+        }
+        
     }
 }));
 
@@ -102,6 +106,10 @@ export default function SignUpPage2({page, setPage, data, setData}) {
         setPage('donorpage3')
     };
 
+    const csvPage = () => {
+        setPage('csvUpload')
+    }
+
     const goBack = () => {
         setPage('page1')
     }
@@ -109,20 +117,21 @@ export default function SignUpPage2({page, setPage, data, setData}) {
     return (
         <div className={classes.donorPage1}>
             <div>
-                <h1 style={{textAlign:'center'}}>Hi Jane! Please let us know the address you <br/>would like to donate.</h1>
+                <h1 style={{textAlign:'center'}}>Hi! Please let us know the address you <br/>would like to donate.</h1>
             </div>
             <div>
-            <div style={{textAlign:'center'}}> 
+            <div style={{textAlign:'center'}}>
                 <TextField
                     required
                     id="standard-required"
                     onChange={(event) => {
-                        writeUserData("address", event.target.value);
+                        writeUserData("addressStreet", event.target.value);
                     }}
                     label="Street Name & Number"
                     type="address"
                     variant="outlined"
                     className={classes.text1}
+                    style={{textAlign:'center'}}
                 />
             </div>
             <div style={{textAlign:'center'}}>
@@ -130,12 +139,13 @@ export default function SignUpPage2({page, setPage, data, setData}) {
                     required
                     id="standard-required"
                     onChange={(event) => {
-                        writeUserData("city", event.target.value);
+                        writeUserData("addressCity", event.target.value);
                     }}
                     label="City"
                     type="city"
                     variant="outlined"
                     className={classes.text2}
+                    style={{textAlign:'center'}}
                 />
                  <TextField
                     disabled
@@ -145,6 +155,7 @@ export default function SignUpPage2({page, setPage, data, setData}) {
                     defaultValue="California"
                     variant="outlined"
                     className={classes.text2}
+                    style={{textAlign:'center'}}
                 />
             </div>
             <div style={{textAlign:'center'}}>
@@ -155,6 +166,7 @@ export default function SignUpPage2({page, setPage, data, setData}) {
                     defaultValue="United States"
                     variant="outlined"
                     className={classes.text2}
+                    style={{textAlign:'center'}}
                 />
                 <TextField
                     required
@@ -162,12 +174,19 @@ export default function SignUpPage2({page, setPage, data, setData}) {
                     label="Zip Code"
                     type="zipcode"
                     variant="outlined"
+                    onChange={(event) => {
+                        writeUserData("addressZip", event.target.value);
+                    }}
                     className={classes.text2}
+                    style={{textAlign:'center'}}
                 />
             </div>
             </div>
             <div style={{textAlign:'center'}}>  
-                <a href="/" className={classes.note}>Have multiple addresses to donate?</a>
+                <Button onClick={csvPage} className={classes.pageButton}>
+                Have multiple addresses to donate?
+                </Button>
+                {/* <a href="/" className={classes.note} style={{textAlign:'center'}}>Have multiple addresses to donate?</a> */}
             </div>
             <div className={classes.nextButtonDiv} style={{textAlign:'center'}}> 
                 <Button variant="contained" onClick={saveForm} className={classes.nextButton}>
@@ -175,12 +194,13 @@ export default function SignUpPage2({page, setPage, data, setData}) {
                 </Button>
             </div>
             <div style={{textAlign:'center'}}>
-                <Button
-                    // className={classes.button}
-                    startIcon={<ArrowBackIcon />}
-                    onClick={goBack}
-                >Back</Button>
+            <Button
+                // className={classes.button}
+                startIcon={<ArrowBackIcon />}
+                onClick={goBack}
+            >Back</Button>
             </div>
+            
         </div>
     );
 }

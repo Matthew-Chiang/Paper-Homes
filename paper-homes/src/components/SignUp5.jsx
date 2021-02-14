@@ -17,6 +17,10 @@ const useStyles = makeStyles((theme) => ({
             width: "25ch",
         },
     },
+    signUpPages: {
+        padding: '150px 0px',
+        textAlign: 'center',
+    },
     container: {
         display: 'flex',
         flexWrap: 'wrap',
@@ -41,21 +45,36 @@ const useStyles = makeStyles((theme) => ({
         boxShadow: 'none',
         },
     },
+    main: {
+        width: '70vh',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        textAlign: 'left',
+    },
     formControl: {
         padding:'20px 40px',
-        width: '550px'
+        width: '1000px'
     },
     addressCard: {
-        padding:'20px 40px',
-        margin: '50px 200px',
-        boxShadow: '0.5px 0.5px 10px 0.5px #888888',
+        padding: '20px 40px',
+        borderRadius: '8px',
+        boxShadow: '0.5px 2px 10px 0.5px #CFCFCF'
         
     },
-    checkboxlist: {
+    checkboxlist1: {
         alignItems:'start',
         fontSize: 10
 
-    }
+    },
+    checkboxlist2: {
+        alignItems:'center',
+        fontSize: 10
+
+    },
+    formControl: {
+        padding: '40px 0px 10px',
+        width: '80vh',
+    },
 }));
 
 export default function SignUpPage3({page, setPage, data, setData}) {
@@ -104,24 +123,26 @@ export default function SignUpPage3({page, setPage, data, setData}) {
     }
     
     return (
-        <div>
+        <div className={classes.signUpPages}>
             <div>
                 <h1 style={{textAlignLast:'center'}}>Congratulations! Here’s your <br/> new address:</h1>
             </div>
+            <div className={classes.main}>
             <div className={classes.addressCard}>
-                <h2 style={{textAlignLast:'center'}}>AddressHERE</h2>
+                <h2 style={{textAlignLast:'center', fontWeight:'bold'}}>AddressHERE</h2>
                 <p style={{textAlignLast:'center'}}>City, CA, USA</p>
-                <p style={{textAlignLast:'center'}}>Postal</p>
+                <p style={{textAlignLast:'center'}}>Zip Code</p>
             </div>
+             </div>
             <div className={classes.checkboxForm} style={{textAlignLast:'center'}}>
             <FormControl required component="fieldset" className={classes.formControl}>
                 <FormGroup >
-                <FormControlLabel className={classes.checkboxlist}
+                <FormControlLabel className={classes.checkboxlist1}
                     control={<Checkbox checked={acknowledge1} onChange={(event) => {
                         writeUserData("acknowledge1", event.target.checked);}} name="acknowledge1" />}
                     label="I acknowledge that holding this address does not mean I am entitled to occupy its residency. I will solely use this address for the purposes of applying for government benefits and mail forwarding."
                 />
-                <FormControlLabel className={classes.checkboxlist}
+                <FormControlLabel className={classes.checkboxlist2}
                     control={<Checkbox checked={acknowledge2}className={classes.checkboxlist} onChange={(event) => {
                         writeUserData("acknowledge2", event.target.checked);}} name="acknowledge2" />}
                     label="I confirm that I have read and agree with Paper Homes’ Terms and Conditions and Privacy Policy"
@@ -142,5 +163,6 @@ export default function SignUpPage3({page, setPage, data, setData}) {
                 >Back</Button>
             </div>
         </div>
+       
     );
 }
