@@ -30,6 +30,7 @@ class UserProfile extends Component {
     console.log(time);
 
     return (
+      <div className="main">
       <div className="content">
         <div className="container-fluid">
           <div className="row"><h2 className="section-title">Personal Information</h2></div>
@@ -41,6 +42,7 @@ class UserProfile extends Component {
           <div className="section-head">Mail Forwarding Address:</div>
           <div className="section-info">{ this.state.user["mailAddress"]}</div>
         </div>
+      </div>
       </div>
     )
   }

@@ -12,6 +12,12 @@ import DonorSignUpPage3 from '../components/DonorSignUp3';
 import DonorSignUpPage4 from '../components/DonorSignUp4';
 import SignUpLogin from '../components/SignUpLogin';
 
+import SignUp3Birth from "../components/SignUp3Birth";
+import SignUp3Pass from "../components/SignUp3Pass";
+import SignUp3Calid from "../components/SignUp3Calid";
+import SignUp3Ssn from "../components/SignUp3Ssn";
+import CsvUpload from "../components/CsvUpload";
+
 export default function SignUp() {
     // const classes = useStyles();
     const [page, setPage] = useState("page1");
@@ -91,15 +97,51 @@ export default function SignUp() {
                         setData={setUser}
                     />
                 );
-            // case "donorpage5":
-            //     return (
-            //         <DonorSignUpPage5
-            //             page={page}
-            //             setPage={setPage}
-            //             data={user}
-            //             setData={setUser}
-            //         />
-            //     );
+            case "page3Birth":
+                return (
+                    <SignUp3Birth
+                        page={page}
+                        setPage={setPage}
+                        data={user}
+                        setData={setUser}
+                    />
+                );
+            case "page3Ssn":
+                return (
+                    <SignUp3Ssn
+                        page={page}
+                        setPage={setPage}
+                        data={user}
+                        setData={setUser}
+                    />
+                );
+                case "page3calid":
+                    return (
+                        <SignUp3Calid
+                            page={page}
+                            setPage={setPage}
+                            data={user}
+                            setData={setUser}
+                        />
+                    );
+                case "page3Pass":
+                    return (
+                        <SignUp3Pass
+                            page={page}
+                            setPage={setPage}
+                            data={user}
+                            setData={setUser}
+                        />
+                    );
+                case "csvUpload":
+                    return (
+                        <CsvUpload
+                            page={page}
+                            setPage={setPage}
+                            data={user}
+                            setData={setUser}
+                        />
+                    );
             default:
                 return <div></div>;
         }

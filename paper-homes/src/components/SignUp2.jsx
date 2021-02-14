@@ -7,6 +7,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import AddressOptions from '../json/mailOptions'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -14,6 +15,10 @@ const useStyles = makeStyles((theme) => ({
             margin: theme.spacing(1),
             width: "25ch",
         },
+    },
+    signUpPages: {
+        padding: '150px 0px',
+        textAlign: 'center',
     },
     container: {
         display: 'flex',
@@ -84,7 +89,7 @@ export default function SignUpPage2({page, setPage, data, setData}) {
     }
 
     return (
-        <div style={{alignItems:'center'}}>
+        <div className={classes.signUpPages}>
             <div>
                 <h1 style={{textAlignLast:'center'}}>Which location would you like <br/> your mail forwarded to? </h1>
                 <p style={{textAlignLast:'center'}}>Select the housing shelter you’re associated with below to <br/> forward your mail to, and we’ll take care of the rest.</p>
@@ -99,10 +104,9 @@ export default function SignUpPage2({page, setPage, data, setData}) {
                         writeUserData("mailAddress", event.target.value);}}
                     label="Mail Forwarding Location"
                     >
-                    <option aria-label="None" value="" />
-                    <option value={10}>Ten</option>
-                    <option value={20}>Twenty</option>
-                    <option value={30}>Thirty</option>
+                    {AddressOptions.options.map((address, i) => {     
+                        return (<option value={address}>{address}</option>) 
+                    })}
                 </Select>
             </FormControl>
             </div>

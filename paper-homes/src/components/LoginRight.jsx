@@ -67,29 +67,45 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function LoginRight({data, setData}) {
-    const classes = useStyles();
 
+    const classes = useStyles();
     const [btnDisabled, setBtnDisabled] = useState(true);
     
     let history = useHistory();
 
     const writeUserData = (key, dataValue) => {
         setData({ ...data, [key]: dataValue });
-        console.log(data)
         if (key == 'password') {
            setBtnDisabled(!dataValue)
         }
     };
 
     const saveForm = () => {
-        console.log(data)
-        history.push("/dashboard");
+        // console.log('data')
+        // console.log(data)
+        axios
+        //.get(`http://localhost:5000/user/${this.props.data["email"]}`)
+        .get(`http://localhost:5000/user/${data.email}`)
+        .then((res) => {
+          const user = res.data
+        //   console.log(user)
+          setData(user)
+ 
+        })
+        .catch((e) => {
+            console.log(e);
+        });
+        // console.log('type')
+        // console.log(data['type'])
+        if (data['type'] == 'donor') {
+            history.push("/donorDashboard");
+        } else {history.push("/dashboard");}
     };
 
     return (
         <div className={classes.signup}>
             <div>
-                <h1 className={classes.title}>Login</h1>
+                <h1 style={{padding:'1px'}}>Login</h1>
             </div>
             <div>
                 <TextField
