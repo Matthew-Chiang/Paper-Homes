@@ -54,7 +54,7 @@ export default function SignUp() {
         setOpen(false);
     };
 
-    const renderSwitch = (param, setPage) => {
+    const renderSwitch = (param, setPage, user, setUser) => {
         // }, user, setUser) => {
         switch (param) {
             case 1:
@@ -62,8 +62,8 @@ export default function SignUp() {
                     <Popup1
                         page={page}
                         setPage={setPage}
-                        // data={user}
-                        // setData={setUser}
+                        data={user}
+                        setData={setUser}
                     />
                 );
             case 2:
@@ -71,8 +71,8 @@ export default function SignUp() {
                     <Popup2
                         page={page}
                         setPage={setPage}
-                        // data={user}
-                        // setData={setUser}
+                        data={user}
+                        setData={setUser}
                     />
                 );
             case 3:
@@ -80,8 +80,8 @@ export default function SignUp() {
                     <Popup3
                         page={page}
                         setPage={setPage}
-                        // data={user}
-                        // setData={setUser}
+                        data={user}
+                        setData={setUser}
                     />
                 );
             default:
@@ -90,25 +90,38 @@ export default function SignUp() {
     };
 
     return (
-        // <UserContext.Consumer>
-        //     {({ user, setUser }) => (
-        //         <div>{renderSwitch(page, setPage, user, setUser)}</div>
-        //     )}
-        // </UserContext.Consumer>
-        <Dialog
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="max-width-dialog-title"
-            fullWidth={true}
-            maxWidth="md"
-        >
-            <DialogActions>
-                <Button onClick={handleClose} color="primary">
-                    Close
-                </Button>
-            </DialogActions>
-            {renderSwitch(page, setPage)}
-        </Dialog>
+        <UserContext.Consumer>
+            {({ user, setUser }) => (
+                <Dialog
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="max-width-dialog-title"
+                    fullWidth={true}
+                    maxWidth="md"
+                >
+                    <DialogActions>
+                        <Button onClick={handleClose} color="primary">
+                            Close
+                        </Button>
+                    </DialogActions>
+                    {renderSwitch(page, setPage, user, setUser)}
+                </Dialog>
+            )}
+        </UserContext.Consumer>
+        // <Dialog
+        //     open={open}
+        //     onClose={handleClose}
+        //     aria-labelledby="max-width-dialog-title"
+        //     fullWidth={true}
+        //     maxWidth="md"
+        // >
+        //     <DialogActions>
+        //         <Button onClick={handleClose} color="primary">
+        //             Close
+        //         </Button>
+        //     </DialogActions>
+        //     {renderSwitch(page, setPage)}
+        // </Dialog>
 
         // , user, setUser)}
     );
