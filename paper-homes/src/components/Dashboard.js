@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import ChartistGraph from 'react-chartist'
 import face3 from "../assets/img/faces/face-1.jpg"
-import hand1 from "../assets/img/hands/HandsShow.png"
-
+import hand1 from "../assets/img/hands/HandsPhone.png"
+import hand2 from "../assets/img/hands/HandsGive.png"
+import hand3 from "../assets/img/hands/HandsShow.png"
 
 class Dashboard extends Component {
   render() {
@@ -47,8 +48,11 @@ class Dashboard extends Component {
               <div className="card">
                 <div className="row">
                   <div className="col-md-2">
-                  <img className="avatar border-gray" src={hand1} alt="..." />
-                  
+                    <div className="hands">
+                      <div className="center vcenter">
+                        <img className="hands" src={hand1} alt="..." />
+                      </div>
+                    </div>
                   </div>
                   <div className="col-md-8">
                     <div className="card-header ">
@@ -56,7 +60,48 @@ class Dashboard extends Component {
                     </div>
                     <div className="card-body ">
                       <p className="description">Lorem Ipsum laofdf  sodfsj  sdjgosdjg </p>
-                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-10">
+              <div className="card">
+                <div className="row">
+                  <div className="col-md-2">
+                    <div className="hands">
+                      <div className="center vcenter">
+                        <img className="hands" src={hand2} alt="..." />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-8">
+                    <div className="card-header ">
+                      <h4 className="card-title"><b>Get Your ID</b></h4>
+                    </div>
+                    <div className="card-body ">
+                      <p className="description">Lorem Ipsum laofdf  sodfsj  sdjgosdjg </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-10">
+              <div className="card">
+                <div className="row">
+                  <div className="col-md-2">
+                    <div className="hands">
+                      <div className="center vcenter">
+                        <img className="hands" src={hand3} alt="..." />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-8">
+                    <div className="card-header ">
+                      <h4 className="card-title"><b>Get Your ID</b></h4>
+                    </div>
+                    <div className="card-body ">
+                      <p className="description">Lorem Ipsum laofdf  sodfsj  sdjgosdjg </p>
                     </div>
                   </div>
                 </div>

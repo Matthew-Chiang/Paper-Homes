@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import face3 from "../assets/img/faces/face-3.jpg"
 import firebase from 'firebase';
 
-
+/*
 var firebaseConfig = {
   apiKey: "AIzaSyDtY3EfI2UIPsiSG-9PJrEQWclJ1ppAmdg",
   authDomain: "paperhomes-44719.firebaseapp.com",
@@ -17,12 +17,18 @@ firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
 const userId = "meghan"
 const ref = firebase.database().ref('users/' + userId)
-
+*/
 class UserProfile extends Component {
+  //this.props.data[];
   render() {
     return (
       <div className="content">
         <div className="container-fluid">
+          <div className="row"><h2 className="section-title">Personal Information</h2></div>
+          <div>Name:</div>
+          <div>John Doe</div>
+          <div>Mail Forwarding Address:</div>
+          <div>123 Somewhere Street</div>
           <div className="row">
             <div className="col-md-4">
               <div className="card card-user">

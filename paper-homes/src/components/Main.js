@@ -9,13 +9,13 @@ class Main extends Component {
   render() {
     return (
       <div className="main-panel">
-        <Navbar />
+        {/*<Navbar />*/}
         <Switch>
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/profile" component={UserProfile} />
           <Redirect from='*' to='/dashboard' />
         </Switch>
-        <Footer />
+        {/*<Footer />*/}
       </div>
     )
   }

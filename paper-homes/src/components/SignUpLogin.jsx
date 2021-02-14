@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from './NavBar'
+//import Navbar from './NavBar'
 import SignUpLoginRight from './SignUpLoginRight';
 import SignUpLoginLeft from './SignUpLoginLeft';
 
