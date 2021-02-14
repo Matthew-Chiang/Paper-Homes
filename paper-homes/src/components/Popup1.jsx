@@ -13,6 +13,7 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 // import Switch from '@material-ui/core/Switch';
 import Forms from "../images/Forms.png";
 import PopupStepper from "./PopupStepper";
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
     form: {
@@ -48,6 +49,18 @@ const useStyles = makeStyles((theme) => ({
 export default function MaxWidthDialog({ page, setPage, data, setData }) {
     const classes = useStyles();
 
+    const getDocument = () => {
+        console.log("getting doc");
+        axios
+            .get(`http://localhost:5000/pdf/waiveFeeBirthCert/nameFromReact`)
+            .then((res) => {
+                console.log(res);
+            })
+            .catch((e) => {
+                console.log(e);
+            });
+    };
+
     return (
         <div className={classes.main}>
             <DialogTitle id="max-width-dialog-title">
@@ -78,19 +91,25 @@ export default function MaxWidthDialog({ page, setPage, data, setData }) {
                                 padding: "0px 60px",
                             }}
                         >
-                            <Button
-                                variant="contained"
-                                style={{
-                                    backgroundColor: "#5C7294",
-                                    color: "#fff",
-                                    marginBottom: "20px",
-                                    width: "200px",
-                                    marginLeft: "5px",
-                                    padding: "10px",
-                                }}
+                            <a
+                                href="http://localhost:5000/pdf/waiveFeeBirthCert/nameFromReact"
+                                target="_blank"
+                                rel="noopener noreferrer"
                             >
-                                Download
-                            </Button>
+                                <Button
+                                    variant="contained"
+                                    style={{
+                                        backgroundColor: "#5C7294",
+                                        color: "#fff",
+                                        marginBottom: "20px",
+                                        width: "200px",
+                                        marginLeft: "5px",
+                                        padding: "10px",
+                                    }}
+                                >
+                                    Download
+                                </Button>
+                            </a>
                             <Button
                                 variant="contained"
                                 style={{
