@@ -36,6 +36,7 @@ class Dashboard extends Component {
         {({ user, setUser }) => (
           <div className="main">
             <div className="content">
+                <PopupExpiry timeLeft={this.getTime(user)} user={user} setUser={setUser}/>
               {/* {console.log("asdf")}
               {console.log(user)} */}
               <div className="container-fluid">
