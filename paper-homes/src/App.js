@@ -11,7 +11,7 @@ import {
 } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import MainProfile from "./pages/MainProfile";
-import DashboardDonor from "./component/DashboardDonor";
+import DashboardDonor from "./components/DashboardDonor";
 import MainDashboard from "./pages/MainDashboard";
 import Login from "./components/Login"
 import { UserProvider } from "./context/userContext";
