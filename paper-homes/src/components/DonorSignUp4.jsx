@@ -116,9 +116,9 @@ export default function SignUpPage3({page, setPage, data, setData}) {
             </div>
             <div className={classes.main}>
             <div className={classes.addressCard} style={{textAlign:'center'}}>
-                <h2>AddressHERE</h2>
-                <p>City, CA, USA</p>
-                <p>Zip Code</p>
+                <h2>{data['addressStreet']}</h2>
+                <p>{data['addressCity']}, CA, USA</p>
+                <p>{data['addressZip']}</p>
             </div>
             <div className={classes.checkboxForm}>
             <FormControl required component="fieldset" className={classes.formControl}>
