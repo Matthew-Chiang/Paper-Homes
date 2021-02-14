@@ -17,32 +17,6 @@ firebase.initializeApp(firebaseConfig);
 
 const db = firebase.firestore();
 
-// async function addUserData(db, data) {
-//   const docRef = db.collection('users').doc(data['email']);
-//   firstname_ =  data['firstName']
-//   lastname_ = data['lastName']
-//   password_ = data['password']
-//   email_ = data['email']
-//   type_ = data['type']
-//   // mailingAddres_ = data['mailingAddress']
-//   await docRef.set({
-//     firstName: firstname_,
-//     lastName: lastname_,
-//     email: email_,
-//     password: password_,
-//     type: type_,
-//     // mailingAddress: mailingAddres_
-
-//   });
-// }
-
-// async function updateUserData(db, data) {
-//   const docRef = db.collection('users').doc(data['email']);
-//   await docRef.set({
-//     data
-//   });
-// }
-
 async function addUserData(db, data) {
     const docRef = db.collection("users").doc(data["email"]);
     await docRef.set(data);
