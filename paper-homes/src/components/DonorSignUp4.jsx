@@ -8,6 +8,7 @@ import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -72,6 +73,8 @@ export default function SignUpPage3({page, setPage, data, setData}) {
         acknowledge1: false,
         acknowledge2: false,
       });
+    
+    let history = useHistory();
 
     useEffect(() => {
         setData({...data, ['acknowledge1']: false});
@@ -81,10 +84,10 @@ export default function SignUpPage3({page, setPage, data, setData}) {
     const writeUserData = (key, dataValue) => {
         // setData({ ...data, [key]: dataValue });
         setState({ ...state, [key]: dataValue });
-        setBtnDisabled(!data['acknowledge1'] && !data['acknowledge2'])
+        setBtnDisabled(!dataValue)
     };
 
-    const { acknowledge1, acknowledge2} = state;
+    const { acknowledge2} = state;
 
     const saveForm = () => {
         // axios
@@ -97,7 +100,7 @@ export default function SignUpPage3({page, setPage, data, setData}) {
         //     .catch((e) => {
         //         console.log(e);
         //     });
-        setPage('donorpage5')
+        history.push("/donorDashboard");
     };
 
     const goBack = () => {
@@ -107,11 +110,11 @@ export default function SignUpPage3({page, setPage, data, setData}) {
     return (
         <div className={classes.donorPages}>
             <div>
-                <h1>You are donating your address<br/> for use.</h1>
-                <p> Please confirm the address details you've entered below. </p>
+                <h1 style={{textAlign:'center'}}>You are donating your address<br/> for use.</h1>
+                <p style={{textAlign:'center'}}> Please confirm the address details you've entered below. </p>
             </div>
             <div className={classes.main}>
-            <div className={classes.addressCard}>
+            <div className={classes.addressCard} style={{textAlign:'center'}}>
                 <h2>AddressHERE</h2>
                 <p>City, CA, USA</p>
                 <p>Zip Code</p>
@@ -121,23 +124,26 @@ export default function SignUpPage3({page, setPage, data, setData}) {
                 <FormGroup>
                 <FormControlLabel
                     control={<Checkbox checked={acknowledge2} onChange={(event) => {
-                        writeUserData(event.target.name, event.target.checked);}} name="acknowledge2" />}
+                        writeUserData('acknowledge2', event.target.checked);}} name="acknowledge2" />}
                     label="I confirm that I have read and agree with Paper Homes’ Terms and Conditions and Privacy Policy"
                 />
                 </FormGroup>
             </FormControl>
             </div>
             </div>
-            <div className={classes.nextButtonDiv}> 
+            <div className={classes.nextButtonDiv} style={{textAlign:'center'}}> 
                 <Button variant="contained" onClick={saveForm} className={classes.nextButton} disabled={btnDisabled}>
                     Donate
                 </Button>
             </div>
+            <div style={{textAlign:'center'}}>
             <Button
                 // className={classes.button}
                 startIcon={<ArrowBackIcon />}
                 onClick={goBack}
             >Back</Button>
+            </div>
+            
         </div>
     );
 }
