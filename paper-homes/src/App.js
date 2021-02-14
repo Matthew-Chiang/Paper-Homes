@@ -23,7 +23,7 @@ class App extends Component {
                             <Route exact path="/signup">
                                 <SignUp />
                             </Route>
-                            <Route path="/">
+                            <Route path="/home">
                                 <Main />
                             </Route>
                         </Switch>

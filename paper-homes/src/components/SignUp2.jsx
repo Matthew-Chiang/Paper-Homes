@@ -84,12 +84,12 @@ export default function SignUpPage2({page, setPage, data, setData}) {
     }
 
     return (
-        <div>
+        <div style={{alignItems:'center'}}>
             <div>
-                <h1>Which location would you like <br/> your mail forwarded to? </h1>
-                <p>Select the housing shelter you’re associated with below to <br/> forward your mail to, and we’ll take care of the rest.</p>
+                <h1 style={{textAlignLast:'center'}}>Which location would you like <br/> your mail forwarded to? </h1>
+                <p style={{textAlignLast:'center'}}>Select the housing shelter you’re associated with below to <br/> forward your mail to, and we’ll take care of the rest.</p>
             </div>
-            <div>
+            <div style={{textAlignLast:'center'}}>
             <FormControl variant="outlined" className={classes.formControl}>
                 <InputLabel htmlFor="outlined-age-native-simple">Mail Forwarding Location</InputLabel>
                 <Select
@@ -106,16 +106,19 @@ export default function SignUpPage2({page, setPage, data, setData}) {
                 </Select>
             </FormControl>
             </div>
-            <div className={classes.nextButtonDiv}> 
+            <div className={classes.nextButtonDiv} style={{textAlignLast:'center'}} > 
                 <Button variant="contained" onClick={saveForm} className={classes.nextButton}>
                     Next
                 </Button>
             </div>
-            <Button
-                // className={classes.button}
-                startIcon={<ArrowBackIcon />}
-                onClick={goBack}
-            >Back</Button>
+            <div style={{textAlignLast:'center'}}>
+                <Button 
+                    // className={classes.button}
+                    startIcon={<ArrowBackIcon />}
+                    onClick={goBack}
+                >Back</Button>
+            </div>
+            
         </div>
     );
 }
