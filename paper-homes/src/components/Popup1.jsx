@@ -49,18 +49,6 @@ const useStyles = makeStyles((theme) => ({
 export default function MaxWidthDialog({ page, setPage, data, setData }) {
     const classes = useStyles();
 
-    const getDocument = () => {
-        console.log("getting doc");
-        axios
-            .get(`http://localhost:5000/pdf/waiveFeeBirthCert/nameFromReact`)
-            .then((res) => {
-                console.log(res);
-            })
-            .catch((e) => {
-                console.log(e);
-            });
-    };
-
     return (
         <div className={classes.main}>
             <DialogTitle id="max-width-dialog-title">
@@ -92,7 +80,7 @@ export default function MaxWidthDialog({ page, setPage, data, setData }) {
                             }}
                         >
                             <a
-                                href="http://localhost:5000/pdf/waiveFeeBirthCert/nameFromReact"
+                                href={`http://localhost:5000/pdf/waiveFeeBirthCert/${data.firstName} ${data.lastName}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >

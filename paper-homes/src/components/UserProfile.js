@@ -1,40 +1,42 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import face3 from "../assets/img/faces/face-3.jpg"
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import face3 from "../assets/img/faces/face-3.jpg";
 import axios from "axios";
 
 class UserProfile extends Component {
-  state = {
-    user:{}
-  }
-  componentDidMount(){
-    // console.log("printing data")
-    // console.log(this.props.data)
-    axios
-        //.get(`http://localhost:5000/user/${this.props.data["email"]}`)
-        .get(`http://localhost:5000/user/asdfasdfasdf`)
-        .then((res) => {
-          const user = res.data
-          this.setState({user},()=>{console.log(user)})
- 
-        })
-        .catch((e) => {
-            console.log(e);
-        });
-      }
-  render() {
-    return (
-      <div className="content">
-        <div className="container-fluid">
-          <div className="row"><h2 className="section-title">Personal Information</h2></div>
-          <div className="section-head">Name:</div>
-          <div className="section-info">
-            { this.state.user["firstName"]} { this.state.user["lastName"]} 
-          </div>
-          <br/>
-          <div className="section-head">Mail Forwarding Address:</div>
-          <div className="section-info">123 Somewhere Street</div>
-          {/* 
+    state = {
+        user: {},
+    };
+    componentDidMount() {
+        axios
+            //.get(`http://localhost:5000/user/${this.props.data["email"]}`)
+            .get(`http://localhost:5000/user/asdfasdfasdf`)
+            .then((res) => {
+                const user = res.data;
+                this.setState({ user }, () => {
+                    console.log(user);
+                });
+            })
+            .catch((e) => {
+                console.log(e);
+            });
+    }
+    render() {
+        return (
+            <div className="content">
+                <div className="container-fluid">
+                    <div className="row">
+                        <h2 className="section-title">Personal Information</h2>
+                    </div>
+                    <div className="section-head">Name:</div>
+                    <div className="section-info">
+                        {this.state.user["firstName"]}{" "}
+                        {this.state.user["lastName"]}
+                    </div>
+                    <br />
+                    <div className="section-head">Mail Forwarding Address:</div>
+                    <div className="section-info">123 Somewhere Street</div>
+                    {/* 
           <div className="row">
             <div className="col-md-4">
               <div className="card card-user">
@@ -73,10 +75,10 @@ class UserProfile extends Component {
             </div>
           </div>
         */}
-        </div>
-      </div>
-    )
-  }
+                </div>
+            </div>
+        );
+    }
 }
 
-export default UserProfile
+export default UserProfile;
