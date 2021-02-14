@@ -96,7 +96,7 @@ export default function SignUpPage3({page, setPage, data, setData}) {
         //     .catch((e) => {
         //         console.log(e);
         //     });
-        history.push("/home");
+        history.push("/dashboard");
     };
 
     const goBack = () => {
