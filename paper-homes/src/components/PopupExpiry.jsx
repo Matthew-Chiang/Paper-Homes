@@ -73,13 +73,14 @@ export default function MaxWidthDialog({timeLeft, user, setUser}) {
       setOpen(false)
     }
 }, []);
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
+  // const handleClickOpen = () => {
+  //   setOpen(true);
+  // };
 
   const handleClick = () => {
     console.log(user)
-    user.createddate="2021-02-13"
+    setUser({...user, 'createddate': "2021-02-13"})
+    // user.createddate="2021-02-13"
     axios
             .post(`http://localhost:5000/user`, user.email)
             .then((res) => {
