@@ -33,6 +33,7 @@ export default function FileUploader({ setCsvInfo, setImageUploaded }) {
 
     const handleFileRead = (e) => {
         const content = fileReader.result;
+        console.log(content)
         setCsvInfo(content);
     };
 
@@ -40,7 +41,7 @@ export default function FileUploader({ setCsvInfo, setImageUploaded }) {
         const uploadedFile = e.target.files[0];
         setUploadedFiles(uploadedFile.name);
         console.log(uploadedFile);
-        if (uploadedFile.type == "text/csv") {
+        if (uploadedFile.type == "text/csv" || uploadedFile.type == "application/vnd.ms-excel") {
             fileReader = new FileReader();
             fileReader.onloadend = handleFileRead;
             fileReader.readAsText(uploadedFile);
