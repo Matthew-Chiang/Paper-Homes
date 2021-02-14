@@ -38,6 +38,7 @@ class Dashboard extends Component {
                                             Expires in 6 months
                                         </div>
                                     </div>
+                                    {/* 
                                     <div className="bottomright">
                                         <div className="row">
                                             <div className="center">
@@ -52,6 +53,7 @@ class Dashboard extends Component {
                                             </div>
                                         </div>
                                     </div>
+                                    */}
                                 </div>
                             </div>
                         {/*</div>*/}
@@ -106,7 +108,7 @@ class Dashboard extends Component {
                                         <div className="col-md-8">
                                             <div className="card-header ">
                                                 <h4 className="card-title">
-                                                    <b>Get Your ID</b>
+                                                    <b>Apply for Health Care Benefits</b>
                                                 </h4>
                                             </div>
                                             <div className="card-body ">
@@ -136,7 +138,7 @@ class Dashboard extends Component {
                                         <div className="col-md-8">
                                             <div className="card-header ">
                                                 <h4 className="card-title">
-                                                    <b>Get Your ID</b>
+                                                    <b>Apply for Jobs</b>
                                                 </h4>
                                             </div>
                                             <div className="card-body ">

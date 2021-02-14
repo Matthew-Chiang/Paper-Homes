@@ -11,12 +11,13 @@ class Main extends Component {
     render() {
         return (
             <div>
+                
                 <Sidebar />
                 <div className="main-panel">
                     <div>
-                        <Navbar />
-                        <UserProfile/>
-                        <Footer />
+                        <UserProfile
+                            data={this.props.data}
+                            setData={this.props.setData}/>
                     </div>
                 </div>
             </div>

@@ -48,21 +48,26 @@ async function addUserData(db, data) {
   await docRef.set(data);
 }
 
-async function quickstartListen(db) {
+async function quickstartListen(db,data) {
   // [START quickstart_listen]
   // [START firestore_setup_dataset_read]
-  const snapshot = await db.collection('users').get();
-  snapshot.forEach((doc) => {
-    console.log(doc.id, '=>', doc.data());
-  });
+  //const snapshot = await db.collection('users').doc(data).get();
+  const userRef = db.collection('users').doc(data);
+  // console.log(userRef);
+  const doc = await userRef.get()
+  const user = await doc.data();
+  // if (!doc.exists) {
+  //   console.log('No such document!');
+  // } else {
+  //   console.log('Document data:', doc.data());
+  // }
+
+  return doc.data();
+  
   // [END firestore_setup_dataset_read]
   // [END quickstart_listen]
 }
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
 
 /* GET home page. */
 router.post('/user', function(req, res, next) {
@@ -78,10 +83,16 @@ router.post('/user', function(req, res, next) {
 router.get("/user/:user_id", function (req, res, next) {
   const user_id = req.params.user_id;
   data = req.body;
-  console.log(data);
+  // console.log(user_id);
 
-  quickstartListen(db, data);
-  res.send("user");
+  // user = quickstartListen(db, user_id);
+  // (async()=> {
+  //   console.log(await quickstartListen(db,user_id))
+  // })()
+  quickstartListen(db,user_id).then(user =>{
+    res.send(user);
+  }) 
+  //res.send("user");//quickstartListen(db, user_id));
 });
 /* GET user page. */
 /*
