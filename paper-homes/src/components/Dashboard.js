@@ -5,6 +5,8 @@ import hand1 from "../assets/img/hands/HandsPhone.png";
 import hand2 from "../assets/img/hands/HandsGive.png";
 import hand3 from "../assets/img/hands/HandsShow.png";
 import { UserContext } from "../context/userContext";
+import PopupController from "../pages/PopupController";
+import Popup1 from "../components/Popup1";
 
 class Dashboard extends Component {
     render() {
@@ -15,6 +17,8 @@ class Dashboard extends Component {
                         <div className="container-fluid">
                             <div className="row">
                                 <h2 className="section-title">My Address</h2>
+                                {/* <Popup1/> */}
+                                <PopupController/>
                             </div>
                             <div className="row">
                                 <div className="col-md-10">
