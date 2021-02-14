@@ -8,7 +8,6 @@ import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -21,10 +20,16 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexWrap: 'wrap',
     },
+    donorPages: {
+        padding: '150px 0px'
+    },
     textField: {
         marginLeft: theme.spacing.unit,
         marginRight: theme.spacing.unit,
         width: 200,
+    },
+    formControl: {
+        minWidth: '400px',
     },
     nextButton: {
         width: '50px',
@@ -41,21 +46,20 @@ const useStyles = makeStyles((theme) => ({
         boxShadow: 'none',
         },
     },
+    main: {
+        width: '70vh',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        textAlign: 'left',
+    },
+    addressCard:{
+        padding: '20px 40px',
+        borderRadius: '8px',
+        boxShadow: '0.5px 2px 10px 0.5px #CFCFCF'
+    },
     formControl: {
-        padding:'20px 40px',
-        width: '550px'
+        padding:'20px 10px',
     },
-    addressCard: {
-        padding:'20px 40px',
-        margin: '50px 200px',
-        boxShadow: '0.5px 0.5px 10px 0.5px #888888',
-        
-    },
-    checkboxlist: {
-        alignItems:'start',
-        fontSize: 10
-
-    }
 }));
 
 export default function SignUpPage3({page, setPage, data, setData}) {
@@ -68,8 +72,6 @@ export default function SignUpPage3({page, setPage, data, setData}) {
         acknowledge1: false,
         acknowledge2: false,
       });
-    
-    let history = useHistory();
 
     useEffect(() => {
         setData({...data, ['acknowledge1']: false});
@@ -79,8 +81,7 @@ export default function SignUpPage3({page, setPage, data, setData}) {
     const writeUserData = (key, dataValue) => {
         // setData({ ...data, [key]: dataValue });
         setState({ ...state, [key]: dataValue });
-        setData({ ...data, [key]: dataValue });
-        setBtnDisabled(!data['acknowledge2'])
+        setBtnDisabled(!data['acknowledge1'] && !data['acknowledge2'])
     };
 
     const { acknowledge1, acknowledge2} = state;
@@ -96,51 +97,47 @@ export default function SignUpPage3({page, setPage, data, setData}) {
         //     .catch((e) => {
         //         console.log(e);
         //     });
-        history.push("/home");
+        setPage('donorpage5')
     };
 
     const goBack = () => {
-        setPage('page3')
+        setPage('donorpage3')
     }
     
     return (
-        <div>
+        <div className={classes.donorPages}>
             <div>
-                <h1 style={{textAlignLast:'center'}}>Congratulations! Here’s your <br/> new address:</h1>
+                <h1>You are donating your address<br/> for use.</h1>
+                <p> Please confirm the address details you've entered below. </p>
             </div>
+            <div className={classes.main}>
             <div className={classes.addressCard}>
-                <h2 style={{textAlignLast:'center'}}>AddressHERE</h2>
-                <p style={{textAlignLast:'center'}}>City, CA, USA</p>
-                <p style={{textAlignLast:'center'}}>Postal</p>
+                <h2>AddressHERE</h2>
+                <p>City, CA, USA</p>
+                <p>Zip Code</p>
             </div>
-            <div className={classes.checkboxForm} style={{textAlignLast:'center'}}>
+            <div className={classes.checkboxForm}>
             <FormControl required component="fieldset" className={classes.formControl}>
-                <FormGroup >
-                <FormControlLabel className={classes.checkboxlist}
-                    control={<Checkbox checked={acknowledge1} onChange={(event) => {
-                        writeUserData("acknowledge1", event.target.checked);}} name="acknowledge1" />}
-                    label="I acknowledge that holding this address does not mean I am entitled to occupy its residency. I will solely use this address for the purposes of applying for government benefits and mail forwarding."
-                />
-                <FormControlLabel className={classes.checkboxlist}
-                    control={<Checkbox checked={acknowledge2}className={classes.checkboxlist} onChange={(event) => {
-                        writeUserData("acknowledge2", event.target.checked);}} name="acknowledge2" />}
+                <FormGroup>
+                <FormControlLabel
+                    control={<Checkbox checked={acknowledge2} onChange={(event) => {
+                        writeUserData(event.target.name, event.target.checked);}} name="acknowledge2" />}
                     label="I confirm that I have read and agree with Paper Homes’ Terms and Conditions and Privacy Policy"
                 />
                 </FormGroup>
             </FormControl>
             </div>
-            <div className={classes.nextButtonDiv} style={{textAlignLast:'center'}}> 
+            </div>
+            <div className={classes.nextButtonDiv}> 
                 <Button variant="contained" onClick={saveForm} className={classes.nextButton} disabled={btnDisabled}>
-                    Confirm
+                    Donate
                 </Button>
             </div>
-            <div style={{textAlignLast:'center'}}>
-                <Button
-                    // className={classes.button}
-                    startIcon={<ArrowBackIcon />}
-                    onClick={goBack}
-                >Back</Button>
-            </div>
+            <Button
+                // className={classes.button}
+                startIcon={<ArrowBackIcon />}
+                onClick={goBack}
+            >Back</Button>
         </div>
     );
 }

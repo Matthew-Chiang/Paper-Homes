@@ -28,7 +28,7 @@ b {
 .bottomright {
     position: absolute;
     bottom: 16px;
-    right: 16px;
+    right: 20px;
     font-size: 18px;
 }
 
@@ -42,7 +42,7 @@ b {
 .topright {
     position: absolute;
     top: 16px;
-    right: 16px;
+    right: 20px;
     font-size: 18px;
 }
 

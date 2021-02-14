@@ -712,6 +712,11 @@ body>.navbar-collapse[data-color="darkazure"]:after {
     min-height: calc(100% - 123px);
 }
 
+.content {
+    padding: 30px 50px;
+    min-height: calc(100% - 123px);
+}
+
 .main-panel>.footer {
     border-top: 1px solid #e7e7e7;
 }
@@ -2885,12 +2890,12 @@ Copyright (c) 2015 Daniel Eden
     line-height: 30px;
 }
 
-.card .avatar {
+.avatar {
     width: 50px;
     height: 50px;
     overflow: hidden;
     border-radius: 50%;
-    margin-right: 5px;
+    /*margin-right: 5px;*/
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -2932,22 +2937,22 @@ Copyright (c) 2015 Daniel Eden
     margin-bottom: 5px;
 }
 
-.card .stats {
+.stats {
     color: #000000;
     
 }
 
-.card .stats[status="purple"]{
+.stats[status="purple"]{
     background-color: #f2e7fe;
     color: #4b01d1;
 }
 
-.card .stats[status="green"]{
+.stats[status="green"]{
     background-color: #E9FF93;
     color: #066a04;
 }
 
-.card .stats[status="yellow"]{
+.stats[status="yellow"]{
     background-color: #FFF7CD;
     color: #B34B00;
 }

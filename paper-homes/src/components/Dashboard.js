@@ -14,6 +14,8 @@ class Dashboard extends Component {
             <UserContext.Consumer>
                 {({ user, setUser }) => (
                     <div className="content">
+                        {console.log("asdf")}
+                        {console.log(user)}
                         <div className="container-fluid">
                             <div className="row">
                                 <h2 className="section-title">My Address</h2>
@@ -36,26 +38,27 @@ class Dashboard extends Component {
                                     </div>
                                     <div className="topright">
                                         <div className="stats" status="purple">
-                                            <i className="fa fa-clock-o"></i>{" "}
+                                            <i className="fa fa-clock-o"></i>
                                             Expires in 6 months
                                         </div>
                                     </div>
                                     <div className="bottomright">
                                         <div className="row">
                                             <div className="center">
-                                                {" "}
-                                                <p>John Doe</p>{" "}
+                                                <p>John Doe</p>
                                             </div>
+                                            <div className="card-user avatar">
                                             <img
-                                                className="avatar border-gray"
+                                                
                                                 src={face3}
                                                 alt="..."
                                             />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        {/*</div>*/}
                         <div className="row">
                             <h2 className="section-title">What's Next?</h2>
                         </div>
@@ -152,6 +155,7 @@ class Dashboard extends Component {
                             </div>
                         </div>
                     </div>
+                  </div>
                 )}
             </UserContext.Consumer>
         );
