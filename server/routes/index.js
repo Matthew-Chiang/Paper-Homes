@@ -23,30 +23,31 @@ async function addUserData(db, data) {
     await docRef.update({ createddate: "2021-02-14" });
 }
 
-async function quickstartListen(db, data) {
-    // [START quickstart_listen]
-    // [START firestore_setup_dataset_read]
-    //const snapshot = await db.collection('users').doc(data).get();
-    const userRef = db.collection("users").doc(data);
-    // console.log(userRef);
-    const doc = await userRef.get();
-    const user = await doc.data();
-    // if (!doc.exists) {
-    //   console.log('No such document!');
-    // } else {
-    //   console.log('Document data:', doc.data());
-    // }
+async function quickstartListen(db,data) {
+  // [START quickstart_listen]
+  // [START firestore_setup_dataset_read]
+  //const snapshot = await db.collection('users').doc(data).get();
+  const userRef = db.collection('users').doc(data);
+  // console.log(userRef);
+  const doc = await userRef.get()
+  const user = await doc.data();
+  // if (!doc.exists) {
+  //   console.log('No such document!');
+  // } else {
+  //   console.log('Document data:', doc.data());
+  // }
 
-    return doc.data();
-
-    // [END firestore_setup_dataset_read]
-    // [END quickstart_listen]
+  return doc.data();
+  
+  // [END firestore_setup_dataset_read]
+  // [END quickstart_listen]
 }
 
+
 /* GET home page. */
-router.post("/user", function (req, res, next) {
-    data = req.body;
-    console.log(data);
+router.post('/user', function(req, res, next) {
+  data = req.body
+  console.log(data);
 
     addUserData(db, data);
     res.send("user");
