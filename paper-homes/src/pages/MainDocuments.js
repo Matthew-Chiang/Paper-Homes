@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Switch, Route, Redirect } from "react-router-dom";
-import Dashboard from "../components/Dashboard";
+import Documents from "../components/Documents";
 // import UserProfile from "./UserProfile";
 // import SignUp from "../pages/SignUp";
 import Sidebar from "../components/Sidebar";
@@ -17,7 +17,7 @@ class Main extends Component {
                 
                 <div className="main-panel">
                     <div>
-                        <Dashboard/>
+                        <Documents/>
                     </div>
                 </div>
             </div>

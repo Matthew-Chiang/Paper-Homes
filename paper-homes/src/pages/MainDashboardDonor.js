@@ -11,7 +11,7 @@ import SidebarDonor from "../components/SidebarDonor";
 class Main extends Component {
     render() {
         return (
-            <div>
+            <div style={{height:"-webkit-fill-available"}}>
                 <SidebarDonor />
                 <div className="main-panel">
                     <div>

@@ -10,8 +10,7 @@ import Sidebar from "../components/Sidebar";
 class Main extends Component {
     render() {
         return (
-            <div>
-                
+            <div style={{height:"-webkit-fill-available"}}>
                 <Sidebar />
                 <div className="main-panel">
                     <div>

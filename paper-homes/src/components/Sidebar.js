@@ -29,7 +29,7 @@ class Sidebar extends Component {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to='/'>
+              <NavLink className="nav-link" to='/documents'>
                 {/*<i className="nc-icon nc-settings-gear-64"></i>*/}
                 <p>Documents</p>
               </NavLink>
