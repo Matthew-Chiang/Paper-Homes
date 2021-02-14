@@ -94,7 +94,13 @@ h4,
 
 h1,
 .h1 {
-    font-size: 52px;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    background: linear-gradient(to right, #003077 0%, #B4D2FF 100%);
+    -webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
 h2,
