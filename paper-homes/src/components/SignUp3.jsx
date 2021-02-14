@@ -64,20 +64,17 @@ export default function SignUpPage3({page, setPage, data, setData}) {
       });
 
     useEffect(() => {
-        setData({...data, ['passport']: false});
-        setData({...data, ['drivers']: false});
-        setData({...data, ['birthCert']: false});
-        setData({...data, ['ssn']: false});
-        setData({...data, ['calid']: false});
-        setData({...data, ['none']: false});
+        setData({...data, 'passport': false, 'drivers': false, 'birthCert': false, 'ssn': false,  'calid': false, 'none': false});
     },[]);
     
     const writeUserData = (key, dataValue) => {
+        console.log(key,dataValue)
         setData({ ...data, [key]: dataValue });
         setState({ ...state, [key]: dataValue });
+        console.log(data)   
     };
 
-      const { passport, drivers, birthCert, ssn , calid, none} = state;
+      const { passport, drivers, birthCert, ssn , calid, none} = data;
 
     const saveForm = () => {
         axios
@@ -85,12 +82,24 @@ export default function SignUpPage3({page, setPage, data, setData}) {
                 ...data,
             })
             .then((res) => {
-                console.log(res);
+                console.log(data)
+                if (data['none']) {
+                    setPage('page4')
+                } else if (data['birthCert']== true){
+                    setPage('page3Birth')
+                } else if (data['ssn'] == true){
+                    setPage('page3Ssn')
+                } else if (data['calid'] == true){
+                    setPage('page3calid')
+                } else if (data['passport'] == true){
+                    setPage('page3Pass')
+                } else {
+                    setPage('page4')
+                }
             })
             .catch((e) => {
                 console.log(e);
             });
-        setPage('page4')
     };
 
     const goBack = () => {
@@ -107,32 +116,32 @@ export default function SignUpPage3({page, setPage, data, setData}) {
             <FormControl required component="fieldset" className={classes.formControl}>
                 <FormGroup>
                 <FormControlLabel
-                    control={<Checkbox checked={passport} onChange={(event) => {
+                    control={<Checkbox checked={data.passport} onChange={(event) => {
                         writeUserData(event.target.name, event.target.checked);}} name="passport" />}
                     label="Passport"
                 />
                 <FormControlLabel
-                    control={<Checkbox checked={drivers} onChange={(event) => {
+                    control={<Checkbox checked={data.drivers} onChange={(event) => {
                         writeUserData(event.target.name, event.target.checked);}} name="drivers" />}
                     label="Driver's Lisence"
                 />
                 <FormControlLabel
-                    control={<Checkbox checked={birthCert} onChange={(event) => {
+                    control={<Checkbox checked={data.birthCert} onChange={(event) => {
                         writeUserData(event.target.name, event.target.checked);}} name="birthCert" />}
                     label="Birth Certificate"
                 />
                 <FormControlLabel
-                    control={<Checkbox checked={ssn} onChange={(event) => {
+                    control={<Checkbox checked={data.ssn} onChange={(event) => {
                         writeUserData(event.target.name, event.target.checked);}} name="ssn" />}
                     label="SSN"
                 />
                 <FormControlLabel
-                    control={<Checkbox checked={calid} onChange={(event) => {
+                    control={<Checkbox checked={data.calid} onChange={(event) => {
                         writeUserData(event.target.name, event.target.checked);}} name="calid" />}
                     label="California ID Card"
                 />
                 <FormControlLabel
-                    control={<Checkbox checked={none} onChange={(event) => {
+                    control={<Checkbox checked={data.none} onChange={(event) => {
                         writeUserData(event.target.name, event.target.checked);}} name="none" />}
                     label="None"
                 />
