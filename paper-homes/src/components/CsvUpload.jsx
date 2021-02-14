@@ -9,6 +9,7 @@ import Select from "@material-ui/core/Select";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import FileUpload from "./FileUpload";
 import image from "../images/send.png";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     container: {
@@ -79,6 +80,8 @@ export default function CsvUpload({ page, setPage, data, setData }) {
     const [value, setValue] = useState("");
     const [csvInfo, setCsvInfo] = useState([]);
 
+    let history = useHistory();
+
     useEffect(() => {
         setData({ ...data, mailAddress: value });
     }, []);
@@ -102,6 +105,7 @@ export default function CsvUpload({ page, setPage, data, setData }) {
             };
         });
         console.log(csvRows);
+
         axios
             .post(`http://localhost:5000/user`, {
                 ...data,
@@ -123,7 +127,7 @@ export default function CsvUpload({ page, setPage, data, setData }) {
             .catch((e) => {
                 console.log(e);
             });
-        setPage("donorpage3");
+        history.push("/donorDashboard");
     };
 
     const goBack = () => {

@@ -25,23 +25,27 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function FileUploader({ setCsvInfo }) {
+export default function FileUploader({ setCsvInfo, setImageUploaded }) {
     const classes = useStyles();
     let fileReader;
 
+    const [uploadedFiles, setUploadedFiles] = useState(null);
+
     const handleFileRead = (e) => {
-        console.log("asdf");
         const content = fileReader.result;
         setCsvInfo(content);
     };
 
     const handleFileInput = (e) => {
         const uploadedFile = e.target.files[0];
+        setUploadedFiles(uploadedFile.name);
         console.log(uploadedFile);
         if (uploadedFile.type == "text/csv") {
             fileReader = new FileReader();
             fileReader.onloadend = handleFileRead;
             fileReader.readAsText(uploadedFile);
+        } else if (uploadedFile.type.startsWith("image")) {
+            setImageUploaded(true);
         }
     };
 
@@ -55,6 +59,8 @@ export default function FileUploader({ setCsvInfo }) {
                 + Upload
                 <input type="file" onChange={handleFileInput} hidden />
             </Button>
+            <hr></hr>
+            {uploadedFiles && <p>{uploadedFiles}</p>}
             {/* <CSVReader
   parserOptions={{ header: true }}
   onFileLoaded={(data, fileInfo) => console.dir(data, fileInfo)}
