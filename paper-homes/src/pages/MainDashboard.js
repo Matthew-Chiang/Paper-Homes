@@ -14,9 +14,7 @@ class Main extends Component {
                 <Sidebar />
                 <div className="main-panel">
                     <div>
-                        <Navbar />
                         <Dashboard/>
-                        <Footer />
                     </div>
                 </div>
             </div>

@@ -35,10 +35,14 @@ class App extends Component {
                                     <SignUp />
                                 </Route>
                                 <Route path="/dashboard">
-                                    <MainDashboard />
+                                    <MainDashboard
+                                      data={user}
+                                      setData={setUser} />
                                 </Route>
                                 <Route path="/profile">
-                                    <MainProfile />
+                                    <MainProfile 
+                                      data={user}
+                                      setData={setUser}/>
                                 </Route>
                             </Switch>
                         </Router>
