@@ -46,6 +46,7 @@ const db = firebase.firestore();
 async function addUserData(db, data) {
   const docRef = db.collection('users').doc(data['email']);
   await docRef.set(data);
+  await docRef.update({createddate:"2021-02-14"});
 }
 
 async function quickstartListen(db,data) {
