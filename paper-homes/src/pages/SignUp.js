@@ -8,6 +8,10 @@ import SignUpPage5 from "../components/SignUp5";
 import DonorSignUpPage2 from "../components/DonorSignUp2";
 import SignUpLogin from "../components/SignUpLogin";
 import { UserContext } from "../context/userContext";
+import DonorSignUpPage2 from '../components/DonorSignUp2';
+import DonorSignUpPage3 from '../components/DonorSignUp3';
+import DonorSignUpPage4 from '../components/DonorSignUp4';
+import SignUpLogin from '../components/SignUpLogin';
 
 export default function SignUp() {
     // const classes = useStyles();

@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Button, TextField, Stepper, Step, StepButton } from "@material-ui/core";
+import { Button, TextField, Paper } from "@material-ui/core";
 import axios from "axios";
 import 'date-fns';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import FileUpload from '../components/FileUpload';
+import image from '../images/send.png';
 
 const useStyles = makeStyles((theme) => ({
     // root: {
@@ -47,6 +49,23 @@ const useStyles = makeStyles((theme) => ({
         boxShadow: 'none',
     },
 },
+    main: {
+        width: '50vh',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        marginBottom: '20px',
+    },
+    fileCard:{
+        height: '25vh',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '20px 40px',
+        borderRadius: '8px',
+        backgroundColor: '#FAFAFA',
+        boxShadow: '0.5px 2px 10px 0.5px #CFCFCF'
+    },
     text1: {
         margin: '10px 5px',
         width: '510px',
@@ -54,10 +73,10 @@ const useStyles = makeStyles((theme) => ({
     text2: {
         margin: '10px 5px',
         width: '250px'
-        },
+    },
     note: {
-            marginTop: '-5px',
-            fontSize: 14
+        marginTop: '-5px',
+        fontSize: 14
     }
 }));
 
@@ -91,75 +110,28 @@ export default function SignUpPage2({page, setPage, data, setData}) {
             .catch((e) => {
                 console.log(e);
             });
-        setPage('donorpage3')
+        setPage('donorpage4')
     };
 
     const goBack = () => {
-        setPage('page1')
+        setPage('donorpage2')
     }
 
     return (
         <div className={classes.donorPage1}>
             <div>
-                <h1>Hi Jane! Please let us know the address you <br/>would like to donate.</h1>
+                <h1>We'd like to verify your address.</h1>
+                <p> Please upload a copy of your property deed below.</p>
+            </div>
+            <div className={classes.main}>
+            <div className={classes.fileCard}>
+            <img src={image}/>
+            <FileUpload />
+            </div>
             </div>
             <div>
-            <div>
-                <TextField
-                    required
-                    id="standard-required"
-                    onChange={(event) => {
-                        writeUserData("address", event.target.value);
-                    }}
-                    label="Street Name & Number"
-                    type="address"
-                    variant="outlined"
-                    className={classes.text1}
-                />
-            </div>
-            <div>
-                <TextField
-                    required
-                    id="standard-required"
-                    onChange={(event) => {
-                        writeUserData("city", event.target.value);
-                    }}
-                    label="City"
-                    type="city"
-                    variant="outlined"
-                    className={classes.text2}
-                />
-                 <TextField
-                    disabled
-                    id="standard-disabled"
-                    
-                    label="State"
-                    defaultValue="California"
-                    variant="outlined"
-                    className={classes.text2}
-                />
-            </div>
-            <div>
-                <TextField
-                    disabled
-                    id="standard-disabled"
-                    label="Country"
-                    defaultValue="United States"
-                    variant="outlined"
-                    className={classes.text2}
-                />
-                <TextField
-                    required
-                    id="standard-required"
-                    label="Zip Code"
-                    type="zipcode"
-                    variant="outlined"
-                    className={classes.text2}
-                />
-            </div>
-            </div>
-            <div>  
-                <a href="/" className={classes.note}>Have multiple addresses to donate?</a>
+                <a href="/" className={classes.note}>Have an ID with your address instead?</a>
+            
             </div>
             <div className={classes.nextButtonDiv}> 
                 <Button variant="contained" onClick={saveForm} className={classes.nextButton}>
