@@ -11,7 +11,7 @@ import {
 } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import MainProfile from "./pages/MainProfile";
-import DashboardDonor from "./components/DashboardDonor";
+import MainDashboardDonor from "./pages/MainDashboardDonor";
 import MainDashboard from "./pages/MainDashboard";
 import Login from "./components/Login"
 import { UserProvider } from "./context/userContext";
@@ -45,7 +45,7 @@ class App extends Component {
                                       setData={setUser}/>
                                 </Route>
                                 <Route path="/donorDashboard">
-                                    <DashboardDonor/>
+                                    <MainDashboardDonor/>
                                 </Route>
                             </Switch>
                         </Router>

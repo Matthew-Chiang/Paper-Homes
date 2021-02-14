@@ -20,7 +20,8 @@ const useStyles = makeStyles((theme) => ({
         flexWrap: 'wrap',
     },
     donorPage1: {
-        padding: '150px 0px'
+        padding: '150px',
+        textAlign: 'center',
     },
     // textField: {
     //     marginLeft: theme.spacing.unit,

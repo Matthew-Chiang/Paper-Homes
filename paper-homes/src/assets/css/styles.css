@@ -71,3 +71,7 @@ b {
 .hands{
     background-color: #EEF5FF;
 }
+
+.main {
+    min-height: 100vh;
+}
