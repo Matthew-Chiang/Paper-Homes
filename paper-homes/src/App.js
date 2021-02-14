@@ -11,10 +11,12 @@ import {
 } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import MainProfile from "./pages/MainProfile";
+import MainProfileDonor from "./pages/MainProfileDonor";
 import MainDashboardDonor from "./pages/MainDashboardDonor";
 import MainDashboard from "./pages/MainDashboard";
 import Login from "./components/Login"
 import Documents from './pages/MainDocuments'
+import MainDocumentsDonor from './pages/MainDocumentsDonor'
 import { UserProvider } from "./context/userContext";
 import { UserContext } from "./context/userContext";
 
@@ -45,11 +47,19 @@ class App extends Component {
                                       data={user}
                                       setData={setUser}/>
                                 </Route>
+                                <Route path="/donorProfile">
+                                    <MainProfileDonor 
+                                      data={user}
+                                      setData={setUser}/>
+                                </Route>
                                 <Route path="/donorDashboard">
                                     <MainDashboardDonor/>
                                 </Route>
                                 <Route path="/documents">
                                     <Documents/>
+                                </Route>
+                                <Route path="/donorDocuments">
+                                    <MainDocumentsDonor/>
                                 </Route>
                             </Switch>
                         </Router>
