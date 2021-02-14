@@ -2646,6 +2646,15 @@ Copyright (c) 2015 Daniel Eden
     animation-name: fadeOutUp;
 }
 
+.documentsButton {
+        background-color: "#5C7294";
+        color: "#fff";
+        /* // marginBottom: "20px",
+        // width: "200px",
+        // marginLeft: "5px", */
+        padding: "5px 10px";
+        /* // fontSize: 10 */
+}
 .dropdown-menu {
     visibility: hidden;
     margin: 0;
@@ -2860,11 +2869,17 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .card .card-body {
-    padding: 15px 15px 10px 15px;
+    padding: 10px 10px 15px 10px;
+}
+
+.card .card-main-address {
+    padding: 20px 25px 0;
+    background-color: #FFFFFF;
+    border-bottom: none !important;
 }
 
 .card .card-header {
-    padding: 15px 15px 0;
+    padding: 18px 10px 0;
     background-color: #FFFFFF;
     border-bottom: none !important;
 }

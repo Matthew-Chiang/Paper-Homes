@@ -94,10 +94,12 @@ export default function SignUpPage3({ page, setPage, data, setData }) {
             .then((res) => {
                 console.log(res);
                 setDonateAddresss(res.data);
+                setData({...data, 'addressStreet': res.data.address, 'addressCity': res.data.city, 'addressZip': res.data.zipCode})
             })
             .catch((e) => {
                 console.log(e);
             });
+
     }, []);
 
     const writeUserData = (key, dataValue) => {
@@ -108,20 +110,6 @@ export default function SignUpPage3({ page, setPage, data, setData }) {
 
     const { acknowledge1, acknowledge2 } = state;
 
-    // componentDidMount=()=>{
-    //     axios
-    //         //.get(`http://localhost:5000/user/${this.props.data["email"]}`)
-    //         .get(`http://localhost:5000/user/getAddress`)
-    //         .then((res) => {
-    //           const address = res.data
-    //           setData({ ...data, address });
-     
-    //         })
-    //         .catch((e) => {
-    //             console.log(e);
-    //         });
-    //       }
-
     const saveForm = () => {
         axios
             .post(`http://localhost:5000/address/incrementAddress`, {
@@ -130,6 +118,16 @@ export default function SignUpPage3({ page, setPage, data, setData }) {
             .then((res) => {
                 console.log(res);
             })
+            .catch((e) => {
+                console.log(e);
+            });
+        axios
+        .post(`http://localhost:5000/user`, {
+            ...data,
+        })
+        .then((res) => {
+            console.log(data)
+        })
             .catch((e) => {
                 console.log(e);
             });

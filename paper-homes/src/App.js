@@ -14,6 +14,7 @@ import MainProfile from "./pages/MainProfile";
 import MainDashboardDonor from "./pages/MainDashboardDonor";
 import MainDashboard from "./pages/MainDashboard";
 import Login from "./components/Login"
+import Documents from './pages/MainDocuments'
 import { UserProvider } from "./context/userContext";
 import { UserContext } from "./context/userContext";
 
@@ -46,6 +47,9 @@ class App extends Component {
                                 </Route>
                                 <Route path="/donorDashboard">
                                     <MainDashboardDonor/>
+                                </Route>
+                                <Route path="/documents">
+                                    <Documents/>
                                 </Route>
                             </Switch>
                         </Router>
