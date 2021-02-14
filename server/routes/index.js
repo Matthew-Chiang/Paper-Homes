@@ -63,6 +63,16 @@ router.post('/user', function(req, res, next) {
   addUserData(db, data)
   res.send("user");
 
+  
+  /* GET user page. */
+});
+  router.get('/user', function(req, res, next) {
+  data = req.body
+  console.log(data);
+
+  addUserData(db, data)
+  res.send("user");
+
 });
 
 // /* GET home page. */
