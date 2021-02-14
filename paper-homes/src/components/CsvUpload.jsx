@@ -98,6 +98,7 @@ export default function CsvUpload({ page, setPage, data, setData }) {
                 address: values[0].trim(),
                 zipCode: values[1].trim(),
                 city: values[2].trim(),
+                email: data.email,
             };
         });
         console.log(csvRows);
