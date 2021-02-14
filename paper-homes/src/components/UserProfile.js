@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import face3 from "../assets/img/faces/face-3.jpg"
-import firebase from 'firebase';
-
-/*
 var firebaseConfig = {
   apiKey: "AIzaSyDtY3EfI2UIPsiSG-9PJrEQWclJ1ppAmdg",
   authDomain: "paperhomes-44719.firebaseapp.com",
@@ -12,12 +9,6 @@ var firebaseConfig = {
   messagingSenderId: "1005204187826",
   appId: "1:1005204187826:web:49b167432e401c891977ab"
 };
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-const database = firebase.database();
-const userId = "meghan"
-const ref = firebase.database().ref('users/' + userId)
-*/
 class UserProfile extends Component {
   //this.props.data[];
   render() {
