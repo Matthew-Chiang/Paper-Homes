@@ -17,10 +17,19 @@ const useStyles = makeStyles((theme) => ({
     root: {
         width: '80%',
     },
+    signUpPages: {
+      padding: '150px 0px',
+      textAlign: 'center',
+  },
     textField: {
         marginLeft: theme.spacing.unit,
         marginRight: theme.spacing.unit,
         width: 200,
+    },
+    main: {
+      padding: '40px 0px',
+      width: '80vh',
+      display: 'inline-block',
     },
     nextButton: {
         width: '50px',
@@ -91,15 +100,17 @@ export default function SignUpPage3({page, setPage, data, setData}) {
     // }
     
     return (
-        <div>
+        <div className={classes.signUpPages}>
             <div>
                 <h1 style={{textAlignLast:'center'}}>Let’s get you an address!</h1>
                 <h3 style={{textAlignLast:'center'}}>Matching you with an address...</h3>
             </div>
+            <div className={classes.main}>
             <div style={{textAlign:"-webkit-center"}}>
                 <div className={classes.root}>
                 <   LinearProgressWithLabel value={progress} />
                 </div>
+              </div>
             </div>
             
 

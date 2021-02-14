@@ -87,8 +87,7 @@ class Dashboard extends Component {
                                             </div>
                                             <div className="card-body ">
                                                 <p className="description">
-                                                    Lorem Ipsum laofdf sodfsj
-                                                    sdjgosdjg{" "}
+                                                Print out the forms under “Documents” and go to your nearest homeless service provider.{" "}
                                                 </p>
                                             </div>
                                         </div>
@@ -117,8 +116,7 @@ class Dashboard extends Component {
                                             </div>
                                             <div className="card-body ">
                                                 <p className="description">
-                                                    Lorem Ipsum laofdf sodfsj
-                                                    sdjgosdjg{" "}
+                                                Head to <a href="www.dhcs.ca.gov/" style={{color: '#1c1c1c'}}>www.dhcs.ca.gov</a> to learn more about Medi-Cal and how you can apply.{" "}
                                                 </p>
                                             </div>
                                         </div>
@@ -147,8 +145,7 @@ class Dashboard extends Component {
                                             </div>
                                             <div className="card-body ">
                                                 <p className="description">
-                                                    Lorem Ipsum laofdf sodfsj
-                                                    sdjgosdjg{" "}
+                                                Find out about jobs you are eligible to apply to.{" "}
                                                 </p>
                                             </div>
                                         </div>

@@ -106,7 +106,7 @@ export default function SignUpPage2({page, setPage, data, setData}) {
         <div className={classes.donorPage1}>
             <div>
                 <h1 style={{textAlign:'center'}}>We'd like to verify your address.</h1>
-                <p style={{textAlign:'center'}}> Please upload a copy of your property deed below.</p>
+                <p style={{textAlign:'center'}}> Please upload a copy of your property deed or photo of ID with an address below.</p>
             </div>
             <div className={classes.main}>
             <div className={classes.fileCard}>
@@ -114,10 +114,10 @@ export default function SignUpPage2({page, setPage, data, setData}) {
             <FileUpload />
             </div>
             </div>
-            <div style={{textAlign:'center'}}>
+            {/* <div style={{textAlign:'center'}}>
                 <a href="" className={classes.note} >Have an ID with your address instead? No worries! You can upload a photo of your ID too!</a>
             
-            </div>
+            </div> */}
             <div className={classes.nextButtonDiv} style={{textAlign:'center'}}> 
                 <Button variant="contained" onClick={saveForm} className={classes.nextButton}>
                     Next

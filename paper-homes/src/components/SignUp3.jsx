@@ -16,6 +16,10 @@ const useStyles = makeStyles((theme) => ({
             width: "25ch",
         },
     },
+    signUpPages: {
+        padding: '150px 0px',
+        textAlign: 'center',
+    },
     container: {
         display: 'flex',
         flexWrap: 'wrap',
@@ -45,7 +49,9 @@ const useStyles = makeStyles((theme) => ({
     },
     formControl: {
         padding:'20px 40px',
-        boxShadow: '0.5px 0.5px 10px 0.5px #888888'
+        marginBottom: '10px',
+        borderRadius: '8px',
+        boxShadow: '0.5px 2px 10px 0.5px #CFCFCF'
     },
 }));
 
@@ -107,7 +113,7 @@ export default function SignUpPage3({page, setPage, data, setData}) {
     }
     
     return (
-        <div>
+        <div className={classes.signUpPages}>
             <div>
                 <h1 style={{textAlignLast:'center'}}>Which of the following <br/>documents do you have?</h1>
                 <p style={{textAlignLast:'center'}}>Don’t worry if you don’t have an ID, we can still match <br/> you with an address and help you get one.</p>
@@ -123,7 +129,7 @@ export default function SignUpPage3({page, setPage, data, setData}) {
                 <FormControlLabel
                     control={<Checkbox checked={data.drivers} onChange={(event) => {
                         writeUserData(event.target.name, event.target.checked);}} name="drivers" />}
-                    label="Driver's Lisence"
+                    label="Driver's License"
                 />
                 <FormControlLabel
                     control={<Checkbox checked={data.birthCert} onChange={(event) => {

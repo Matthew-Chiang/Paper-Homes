@@ -16,6 +16,10 @@ const useStyles = makeStyles((theme) => ({
             width: "25ch",
         },
     },
+    signUpPages: {
+        padding: '150px 0px',
+        textAlign: 'center',
+    },
     container: {
         display: 'flex',
         flexWrap: 'wrap',
@@ -85,7 +89,7 @@ export default function SignUpPage2({page, setPage, data, setData}) {
     }
 
     return (
-        <div style={{alignItems:'center'}}>
+        <div className={classes.signUpPages}>
             <div>
                 <h1 style={{textAlignLast:'center'}}>Which location would you like <br/> your mail forwarded to? </h1>
                 <p style={{textAlignLast:'center'}}>Select the housing shelter you’re associated with below to <br/> forward your mail to, and we’ll take care of the rest.</p>
