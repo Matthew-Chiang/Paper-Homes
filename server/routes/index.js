@@ -94,4 +94,42 @@ router.post("/address/createAddresses", async function (req, res, next) {
     res.send({ msg: "success" });
 });
 
+router.post("/address/incrementAddress", async function (req, res, next) {
+    const address = req.body.address;
+    const docRef = db.collection("address").doc(address);
+    await docRef.update({
+        numUsed: firebase.firestore.FieldValue.increment(1),
+    });
+    res.send({ msg: "success" });
+});
+
+router.post("/address/decrementAddress", async function (req, res, next) {
+    const address = req.body.address;
+    const docRef = db.collection("address").doc(address);
+    await docRef.update({
+        numUsed: firebase.firestore.FieldValue.increment(-1),
+    });
+    res.send({ msg: "success" });
+});
+
+router.get("/address/getLeastUsedAddress", async function (req, res, next) {
+    // console.log(db.collection("address").orderBy("numUsed").get());
+    const address = await db
+        .collection("address")
+        .orderBy("numUsed")
+        .limit(1)
+        .get();
+
+    if (address.empty) {
+        console.log("No matching addresses - /address/getLeastUsedAddress");
+        return;
+    }
+    let dbAddress;
+    address.forEach((doc) => {
+        dbAddress = { ...doc.data(), address: doc.id };
+    });
+
+    res.send(dbAddress);
+});
+
 module.exports = router;
