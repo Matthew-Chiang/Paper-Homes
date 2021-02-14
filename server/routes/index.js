@@ -127,6 +127,7 @@ router.get("/address/getLeastUsedAddress", async function (req, res, next) {
     // console.log(db.collection("address").orderBy("numUsed").get());
     const address = await db
         .collection("address")
+        .where("verified", "==", true)
         .orderBy("numUsed")
         .limit(1)
         .get();
