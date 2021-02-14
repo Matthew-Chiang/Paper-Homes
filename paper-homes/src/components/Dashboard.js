@@ -7,9 +7,39 @@ import hand3 from "../assets/img/hands/HandsShow.png";
 import { UserContext } from "../context/userContext";
 import PopupController from "../pages/PopupController";
 import Popup1 from "../components/Popup1";
+import axios from "axios";
+import { colors } from "@material-ui/core";
+
 
 class Dashboard extends Component {
+  state = {
+    user:{},
+    curtime: new Date(),
+    //exptime: new Date(Date.parse("2021-03-20"))//new Date(2021, 6, 24)//.toLocaleString()
+  }
+  componentDidMount(){
+    // console.log("printing data")
+    // console.log(this.props.data)
+    axios
+        //.get(`http://localhost:5000/user/${this.props.data["email"]}`)
+        .get(`http://localhost:5000/user/testing@gmail.com`)
+        .then((res) => {
+          const user = res.data
+          this.setState({user},()=>{console.log(user)})
+ 
+        })
+        .catch((e) => {
+            console.log(e);
+        });
+      }
     render() {
+      var color = "purple";
+      const createdDate = new Date(Date.parse(this.state.user.createddate));
+      const time = 6 + createdDate.getMonth() - this.state.curtime.getMonth() + (12 * (createdDate.getFullYear() - this.state.curtime.getFullYear()))
+      console.log(time);
+      if(time<2){
+        color = "red" 
+      }
         return (
             <UserContext.Consumer>
                 {({ user, setUser }) => (
@@ -37,9 +67,9 @@ class Dashboard extends Component {
                                         </div>
                                     </div>
                                     <div className="topright">
-                                        <div className="stats" status="purple">
+                                        <div className="stats" status={color}>
                                             <i className="fa fa-clock-o"></i>
-                                            Expires in 6 months
+                                            Expires in {time} months
                                         </div>
                                     </div>
                                     {/* 

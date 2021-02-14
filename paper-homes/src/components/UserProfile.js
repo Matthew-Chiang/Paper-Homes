@@ -4,15 +4,18 @@ import face3 from "../assets/img/faces/face-3.jpg"
 import axios from "axios";
 
 class UserProfile extends Component {
+  
   state = {
-    user:{}
+    user:{},
+    curtime: new Date(),
+    exptime: new Date(2021, 6, 24)//.toLocaleString()
   }
   componentDidMount(){
     // console.log("printing data")
     // console.log(this.props.data)
     axios
         //.get(`http://localhost:5000/user/${this.props.data["email"]}`)
-        .get(`http://localhost:5000/user/asdfasdfasdf`)
+        .get(`http://localhost:5000/user/testing@gmail.com`)
         .then((res) => {
           const user = res.data
           this.setState({user},()=>{console.log(user)})
@@ -23,6 +26,9 @@ class UserProfile extends Component {
         });
       }
   render() {
+    const time = this.state.exptime.getMonth() - this.state.curtime.getMonth() + (12 * (this.state.exptime.getFullYear() - this.state.curtime.getFullYear()))
+    console.log(time);
+
     return (
       <div className="content">
         <div className="container-fluid">
@@ -33,7 +39,9 @@ class UserProfile extends Component {
           </div>
           <br/>
           <div className="section-head">Mail Forwarding Address:</div>
-          <div className="section-info">123 Somewhere Street</div>
+          <div className="section-info">{ this.state.user["mailAddress"]}</div>
+          <div>{time}</div>
+          {/*<div>{ this.state.curtime} </div>*/}
           {/* 
           <div className="row">
             <div className="col-md-4">
