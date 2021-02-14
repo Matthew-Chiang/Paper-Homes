@@ -91,6 +91,7 @@ router.post("/address/createAddresses", async function (req, res, next) {
         const docRef = db.collection("address").doc(address.address);
         await docRef.set({ ...address, numUsed: 0 });
     });
+    res.send({ msg: "success" });
 });
 
 module.exports = router;
