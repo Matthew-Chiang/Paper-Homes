@@ -39,6 +39,7 @@ export default function FileUploader({ setCsvInfo, setImageUploaded }) {
 
     const handleFileInput = (e) => {
         const uploadedFile = e.target.files[0];
+        console.log(uploadedFile.type)
         setUploadedFiles(uploadedFile.name);
         console.log(uploadedFile);
         if (uploadedFile.type == "text/csv" || uploadedFile.type == "application/vnd.ms-excel") {
@@ -61,7 +62,7 @@ export default function FileUploader({ setCsvInfo, setImageUploaded }) {
                 <input type="file" onChange={handleFileInput} hidden />
             </Button>
             <hr></hr>
-            {uploadedFiles && <p>{uploadedFiles}</p>}
+            {uploadedFiles && <div><p>{uploadedFiles}</p> <p>File Uploaded Successfully!</p></div>}
             {/* <CSVReader
   parserOptions={{ header: true }}
   onFileLoaded={(data, fileInfo) => console.dir(data, fileInfo)}
