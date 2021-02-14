@@ -1,4 +1,4 @@
-import React from 'react';
+import React , {useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -13,6 +13,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 // import Select from '@material-ui/core/Select';
 // import Switch from '@material-ui/core/Switch';
 import Expire from '../images/HandsShow.png';
+import axios from "axios"
 
 const useStyles = makeStyles((theme) => ({
     form: {
@@ -58,14 +59,36 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function MaxWidthDialog({page, setPage, data, setData}) {
+export default function MaxWidthDialog({timeLeft, user, setUser}) {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState();
   const [fullWidth, setFullWidth] = React.useState(true);
   const [maxWidth, setMaxWidth] = React.useState('md');
 
+  
+  useEffect(() => {
+    if (timeLeft < 2) {
+      setOpen(true)
+    } else {
+      setOpen(false)
+    }
+}, []);
   const handleClickOpen = () => {
     setOpen(true);
+  };
+
+  const handleClick = () => {
+    console.log(user)
+    user.createddate="2021-02-13"
+    axios
+            .post(`http://localhost:5000/user`, user.email)
+            .then((res) => {
+                console.log(res);
+            })
+            .catch((e) => {
+                console.log(e);
+            });
+    setOpen(false);
   };
 
   const handleClose = () => {
@@ -82,9 +105,9 @@ export default function MaxWidthDialog({page, setPage, data, setData}) {
 
   return (
     <React.Fragment>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+      {/* <Button variant="outlined" color="primary" onClick={handleClickOpen}>
         Open max-width dialog
-      </Button>
+      </Button> */}
       <Dialog
         fullWidth={fullWidth}
         maxWidth={maxWidth}
@@ -117,7 +140,7 @@ export default function MaxWidthDialog({page, setPage, data, setData}) {
           <Button variant="contained" className={classes.expiryButtons}>
             Let it expire
           </Button>
-          <Button variant="contained" className={classes.expiryButtons}>
+          <Button variant="contained" className={classes.expiryButtons} onClick={handleClick}>
             Renew for 6 months
           </Button>
           </div>
