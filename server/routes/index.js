@@ -60,11 +60,34 @@ router.get("/user/:user_id", function (req, res, next) {
     });
 });
 
+router.get(
+    "/address/getAddressForUser/:userid",
+    async function (req, res, next) {
+        const userid = req.params.userid;
+
+        const addresses = await db
+            .collection("address")
+            .where("email", "==", userid)
+            .get();
+        if (addresses.empty) {
+            console.log(
+                "No matching addresses - /address/getAddressForUser/:userid"
+            );
+            return;
+        }
+        const dbAddress = [];
+        addresses.forEach((doc) => {
+            dbAddress.push({ ...doc.data(), address: doc.id });
+        });
+        res.send(dbAddress);
+    }
+);
+
 router.post("/address/createAddresses", async function (req, res, next) {
     const addresses = req.body.addresses;
     addresses.forEach(async (address) => {
         const docRef = db.collection("address").doc(address.address);
-        await docRef.set({ ...address, numUsed: 0 });
+        await docRef.set({ ...address, numUsed: 0, verified: false });
     });
     res.send({ msg: "success" });
 });

@@ -91,7 +91,7 @@ export default function LoginRight({ data, setData }) {
                     console.log(user);
                     if (user.password == data.password) {
                         setData(user);
-                        if (data["type"] == "donor") {
+                        if (user.type == "donor") {
                             history.push("/donorDashboard");
                         } else {
                             history.push("/dashboard");
