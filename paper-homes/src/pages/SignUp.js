@@ -16,6 +16,7 @@ import SignUp3Birth from "../components/SignUp3Birth";
 import SignUp3Pass from "../components/SignUp3Pass";
 import SignUp3Calid from "../components/SignUp3Calid";
 import SignUp3Ssn from "../components/SignUp3Ssn";
+import CsvUpload from "../components/CsvUpload";
 
 export default function SignUp() {
     // const classes = useStyles();
@@ -126,6 +127,15 @@ export default function SignUp() {
                 case "page3Pass":
                     return (
                         <SignUp3Pass
+                            page={page}
+                            setPage={setPage}
+                            data={user}
+                            setData={setUser}
+                        />
+                    );
+                case "csvUpload":
+                    return (
+                        <CsvUpload
                             page={page}
                             setPage={setPage}
                             data={user}
