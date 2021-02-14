@@ -6,7 +6,7 @@ import hand2 from "../assets/img/hands/HandsGive.png";
 import hand3 from "../assets/img/hands/HandsShow.png";
 import { UserContext } from "../context/userContext";
 import PopupController from "../pages/PopupController";
-import Popup1 from "../components/Popup1";
+import PopupExpiry from "../components/PopupExpiry";
 import axios from "axios";
 import { colors } from "@material-ui/core";
 
@@ -58,6 +58,7 @@ class Dashboard extends Component {
                                     <h2 className="section-title">
                                         My Address
                                     </h2>
+                                    <PopupExpiry />
                                     {/* <PopupDonor/> */}
                                     <PopupController />
                                 </div>
