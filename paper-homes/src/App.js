@@ -56,7 +56,9 @@ class App extends Component {
                                     <MainDashboardDonor/>
                                 </Route>
                                 <Route path="/documents">
-                                    <Documents/>
+                                    <Documents
+                                        data={user}
+                                        setData={setUser}/>
                                 </Route>
                                 <Route path="/donorDocuments">
                                     <MainDocumentsDonor/>
