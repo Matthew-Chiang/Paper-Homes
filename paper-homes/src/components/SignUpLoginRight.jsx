@@ -112,6 +112,7 @@ export default function SignUpLogin({page, setPage, data, setData}) {
             .then((res) => {
                 console.log(res);
                 if (data['type'] == 'recepient'){
+                    console.log('page2')
                     setPage('page2')
                 } else {setPage('donorpage2')}
             })

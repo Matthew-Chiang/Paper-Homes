@@ -17,62 +17,37 @@ firebase.initializeApp(firebaseConfig);
 
 const db = firebase.firestore();
 
-// async function addUserData(db, data) {
-//   const docRef = db.collection('users').doc(data['email']);
-//   firstname_ =  data['firstName']
-//   lastname_ = data['lastName']
-//   password_ = data['password']
-//   email_ = data['email']
-//   type_ = data['type']
-//   // mailingAddres_ = data['mailingAddress']
-//   await docRef.set({
-//     firstName: firstname_,
-//     lastName: lastname_,
-//     email: email_,
-//     password: password_,
-//     type: type_,
-//     // mailingAddress: mailingAddres_
-
-//   });
-// }
-
-// async function updateUserData(db, data) {
-//   const docRef = db.collection('users').doc(data['email']);
-//   await docRef.set({
-//     data
-//   });
-// }
-
 async function addUserData(db, data) {
     const docRef = db.collection("users").doc(data["email"]);
     await docRef.set(data);
     await docRef.update({ createddate: "2021-02-14" });
 }
 
-async function quickstartListen(db, data) {
-    // [START quickstart_listen]
-    // [START firestore_setup_dataset_read]
-    //const snapshot = await db.collection('users').doc(data).get();
-    const userRef = db.collection("users").doc(data);
-    // console.log(userRef);
-    const doc = await userRef.get();
-    const user = await doc.data();
-    // if (!doc.exists) {
-    //   console.log('No such document!');
-    // } else {
-    //   console.log('Document data:', doc.data());
-    // }
+async function quickstartListen(db,data) {
+  // [START quickstart_listen]
+  // [START firestore_setup_dataset_read]
+  //const snapshot = await db.collection('users').doc(data).get();
+  const userRef = db.collection('users').doc(data);
+  // console.log(userRef);
+  const doc = await userRef.get()
+  const user = await doc.data();
+  // if (!doc.exists) {
+  //   console.log('No such document!');
+  // } else {
+  //   console.log('Document data:', doc.data());
+  // }
 
-    return doc.data();
-
-    // [END firestore_setup_dataset_read]
-    // [END quickstart_listen]
+  return doc.data();
+  
+  // [END firestore_setup_dataset_read]
+  // [END quickstart_listen]
 }
 
+
 /* GET home page. */
-router.post("/user", function (req, res, next) {
-    data = req.body;
-    console.log(data);
+router.post('/user', function(req, res, next) {
+  data = req.body
+  console.log(data);
 
     addUserData(db, data);
     res.send("user");

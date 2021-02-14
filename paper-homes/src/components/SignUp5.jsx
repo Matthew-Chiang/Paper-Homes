@@ -108,6 +108,20 @@ export default function SignUpPage3({ page, setPage, data, setData }) {
 
     const { acknowledge1, acknowledge2 } = state;
 
+    // componentDidMount=()=>{
+    //     axios
+    //         //.get(`http://localhost:5000/user/${this.props.data["email"]}`)
+    //         .get(`http://localhost:5000/user/getAddress`)
+    //         .then((res) => {
+    //           const address = res.data
+    //           setData({ ...data, address });
+     
+    //         })
+    //         .catch((e) => {
+    //             console.log(e);
+    //         });
+    //       }
+
     const saveForm = () => {
         axios
             .post(`http://localhost:5000/address/incrementAddress`, {
