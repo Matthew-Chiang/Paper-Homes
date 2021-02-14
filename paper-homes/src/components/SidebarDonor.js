@@ -23,7 +23,7 @@ class Sidebar extends Component {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to='/profile'>
+              <NavLink className="nav-link" to='/DonorProfile'>
                 {/*<i className="nc-icon nc-circle-09"></i>*/}
                 <p>Personal Information</p>
               </NavLink>

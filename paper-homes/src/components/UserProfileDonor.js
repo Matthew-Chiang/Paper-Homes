@@ -10,24 +10,7 @@ class UserProfile extends Component {
         curtime: new Date(),
         exptime: new Date(2021, 6, 24), //.toLocaleString()
     };
-    /*
-    componentDidMount() {
-        // console.log("printing data")
-        // console.log(this.props.data)
-        axios
-            //.get(`http://localhost:5000/user/${this.props.data["email"]}`)
-            .get(`http://localhost:5000/user/testing@gmail.com`)
-            .then((res) => {
-                const user = res.data;
-                this.setState({ user }, () => {
-                    console.log(user);
-                });
-            })
-            .catch((e) => {
-                console.log(e);
-            });
-    }
-    */
+    
     render() {
         const time =
             this.state.exptime.getMonth() -
@@ -56,12 +39,7 @@ class UserProfile extends Component {
                             
                         </div>
                         <br />
-                        <div className="section-head">
-                            Mail Forwarding Address:
-                        </div>
-                        <div className="section-info">
-                            {user["mailAddress"]}
-                        </div>
+                        
                     </div>
                 </div>
             </div>
