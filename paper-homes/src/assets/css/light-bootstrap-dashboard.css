@@ -76,8 +76,8 @@ td,
 button.close {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
-    font-weight: 400;
+    font-family: Source Sans Pro;
+    font-weight: normal;
 }
 
 h1,
@@ -213,12 +213,12 @@ body,
 }
 
 a {
-    color: #dcf9ff;
+    color: #ffffff;
 }
 
 a:hover,
 a:focus {
-    color: #dcf9ff;
+    color: #ffffff;
     text-decoration: none;
 }
 
@@ -445,10 +445,10 @@ body>.navbar-collapse .nav li .nav-link:hover {
 .sidebar .nav li .nav-link p,
 body>.navbar-collapse .nav li .nav-link p {
     margin: 0;
-    line-height: 31px;
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
+    font-size: 15px;
+    line-height: 25px;
+    font-weight: normal;
+    /*text-transform: uppercase;*/
     display: inline-flex;
 }
 
@@ -511,7 +511,7 @@ body>.navbar-collapse .nav .nav-link {
     margin: 5px 15px;
     opacity: .86;
     border-radius: 4px;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
     line-height: 30px;
     font-size: 12px;
     font-weight: 600;
@@ -536,7 +536,7 @@ body>.navbar-collapse .logo p {
 .sidebar .logo .simple-text,
 body>.navbar-collapse .logo .simple-text {
     text-transform: uppercase;
-    padding: 5px 0px;
+    padding: 15px 0px;
     display: block;
     font-size: 18px;
     color: #FFFFFF;
@@ -586,7 +586,7 @@ body>.navbar-collapse:before {
 body>.navbar-collapse:after {
     background: #7cebff;
     background: -moz-linear-gradient(top, #7cebff 0%, #7cebff 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #7cebff), color-stop(100%, #943bea));
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #7cebff), color-stop(100%, #7cebff));
     background: -webkit-linear-gradient(top, #7cebff 0%, #7cebff 100%);
     background: -o-linear-gradient(top, #7cebff 0%, #7cebff 100%);
     background: -ms-linear-gradient(top, #7cebff 0%, #7cebff 100%);
@@ -687,6 +687,18 @@ body>.navbar-collapse[data-color="purple"]:after {
     background-size: 150% 150%;
 }
 
+.sidebar[data-color="darkazure"]:after,
+body>.navbar-collapse[data-color="darkazure"]:after {
+    background: #5C7294;
+    background: -moz-linear-gradient(top, #5C7294 0%, #5C7294 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #5C7294), color-stop(100%, #5C7294));
+    background: -webkit-linear-gradient(top, #5C7294 0%, #5C7294 100%);
+    background: -o-linear-gradient(top, #5C7294 0%, #5C7294 100%);
+    background: -ms-linear-gradient(top, #5C7294 0%, #5C7294 100%);
+    background: linear-gradient(to bottom, #5C7294 0%, #5C7294 100%);
+    background-size: 150% 150%;
+}
+
 .main-panel {
     background: rgba(203, 203, 210, 0.15);
     position: relative;
@@ -696,7 +708,7 @@ body>.navbar-collapse[data-color="purple"]:after {
 }
 
 .main-panel>.content {
-    padding: 30px 15px;
+    padding: 30px 50px;
     min-height: calc(100% - 123px);
 }
 
@@ -2781,6 +2793,8 @@ Copyright (c) 2015 Daniel Eden
     border-radius: 4px;
     background-color: #FFFFFF;
     margin-bottom: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    font-family: Source Sans Pro;
 }
 
 .card .card-image {
@@ -2866,7 +2880,9 @@ Copyright (c) 2015 Daniel Eden
 .card .card-title {
     margin: 0;
     color: #333333;
-    font-weight: 300;
+    /*font-weight: 300;*/
+    font-size: 24px;
+    line-height: 30px;
 }
 
 .card .avatar {
