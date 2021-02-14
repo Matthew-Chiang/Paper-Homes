@@ -17,7 +17,8 @@ const useStyles = makeStyles((theme) => ({
     },
     signup:{
         textAlign: 'justify',
-        padding: '80px 0px'
+        padding: '80px 0px',
+        paddingBottom: '20px'
     },
     title: {
         // paddingTop: '75px',
@@ -65,6 +66,19 @@ const useStyles = makeStyles((theme) => ({
             // borderColor: '#0062cc',
             // boxShadow: 'none',
           },
+    },
+    note2: {
+        marginTop: '-5px',
+        marginLeft: '5px',
+        fontSize: 14,
+        color: 'ACACAC',
+        // textDecoration: 'underline',
+        // '&:hover': {
+        //     color: '#ACACAC',
+        //     textDecoration: 'underline',
+        //     // borderColor: '#0062cc',
+        //     // boxShadow: 'none',
+        //   },
     }
 }));
 
@@ -157,7 +171,7 @@ export default function SignUpLogin({page, setPage, data, setData}) {
                     className={classes.text1}
                 />
             </div>
-            <p className={classes.note} style={{color:"#ACACAC", margin:'10px 5px'}}>Your password must be atleast 8 characters long.</p>
+            <p className={classes.note2} style={{color:"#ACACAC", margin:'10px 5px'}}>Your password must be atleast 8 characters long.</p>
             
             <div style={{paddingTop: '2px', paddingBottom: '10px', margin:'10px 5px'}}>
                 <p style={{fontSize:18}}><b>What's your situation?</b></p>
@@ -189,7 +203,7 @@ export default function SignUpLogin({page, setPage, data, setData}) {
                     className={classes.text2}
                 />
             </div>
-            <p className={classes.note}>Note: You must be located in California to be eligible to receive/donate an address.</p>
+            <p className={classes.note2}>Note: You must be located in California to be eligible to receive/donate an address.</p>
             <div className={classes.nextButtonDiv}> 
                 <Button variant="contained" onClick={saveForm} className={classes.nextButton} disabled={btnDisabled}>
                     Sign Up

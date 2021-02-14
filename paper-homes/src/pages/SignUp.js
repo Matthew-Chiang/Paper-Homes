@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 // import Navbar from "../components/NavBar";
 import Login from "../components/Login"
+
 import SignUpPage2 from "../components/SignUp2";
 import SignUpPage3 from "../components/SignUp3";
 import SignUpPage4 from "../components/SignUp4";
 import SignUpPage5 from "../components/SignUp5";
-import DonorSignUpPage2 from "../components/DonorSignUp2";
-import SignUpLogin from "../components/SignUpLogin";
 import { UserContext } from "../context/userContext";
 import DonorSignUpPage2 from '../components/DonorSignUp2';
 import DonorSignUpPage3 from '../components/DonorSignUp3';
@@ -74,6 +73,33 @@ export default function SignUp() {
                         setData={setUser}
                     />
                 );
+            case "donorpage3":
+                return (
+                    <DonorSignUpPage3
+                        page={page}
+                        setPage={setPage}
+                        data={user}
+                        setData={setUser}
+                    />
+                );
+            case "donorpage4":
+                return (
+                    <DonorSignUpPage4
+                        page={page}
+                        setPage={setPage}
+                        data={user}
+                        setData={setUser}
+                    />
+                );
+            // case "donorpage5":
+            //     return (
+            //         <DonorSignUpPage5
+            //             page={page}
+            //             setPage={setPage}
+            //             data={user}
+            //             setData={setUser}
+            //         />
+            //     );
             default:
                 return <div></div>;
         }
