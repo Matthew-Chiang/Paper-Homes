@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import face3 from "../assets/img/faces/face-3.jpg";
 import axios from "axios";
+import { UserContext } from "../context/userContext";
 
 class UserProfile extends Component {
     state = {
@@ -9,6 +10,7 @@ class UserProfile extends Component {
         curtime: new Date(),
         exptime: new Date(2021, 6, 24), //.toLocaleString()
     };
+    /*
     componentDidMount() {
         // console.log("printing data")
         // console.log(this.props.data)
@@ -25,6 +27,7 @@ class UserProfile extends Component {
                 console.log(e);
             });
     }
+    */
     render() {
         const time =
             this.state.exptime.getMonth() -
@@ -35,6 +38,8 @@ class UserProfile extends Component {
         console.log(time);
 
         return (
+            <UserContext.Consumer>
+            {({ user, setUser }) => (
             <div className="main">
                 <div className="content">
                     <div className="container-fluid">
@@ -45,19 +50,23 @@ class UserProfile extends Component {
                         </div>
                         <div className="section-head">Name:</div>
                         <div className="section-info">
-                            {this.state.user["firstName"]}{" "}
-                            {this.state.user["lastName"]}
+                            {console.log(user)}
+                            {console.log(user["firstName"])}
+                            {user["firstName"]}
+                            {user["lastName"]}
                         </div>
                         <br />
                         <div className="section-head">
                             Mail Forwarding Address:
                         </div>
                         <div className="section-info">
-                            {this.state.user["mailAddress"]}
+                            {user["mailAddress"]}
                         </div>
                     </div>
                 </div>
             </div>
+            )}
+            </UserContext.Consumer>
         );
     }
 }

@@ -20,15 +20,40 @@ class Dashboard extends Component {
   };
   
   getTime = (user) => {
-    const createdDate = new Date(Date.parse(user.createddate));
-    // console.log(createdDate)
-    return (
-      6 +
-      createdDate.getMonth() -
-      this.state.curtime.getMonth() +
-      12 * (createdDate.getFullYear() - this.state.curtime.getFullYear())
-    );
+    var time = 0;
+    if(user){
+      if(user.createddate){
+        const createdDate = new Date(Date.parse(user.createddate));
+        console.log(user.createddate);
+        console.log(createdDate);
+        time = 6 +
+                    createdDate.getMonth() -
+                    this.state.curtime.getMonth() +
+                    12 * (createdDate.getFullYear() - this.state.curtime.getFullYear());
+        console.log(time);
+      }
+      else{
+        time = 6;
+      }
+    }
+    else{
+      time = -1;
+    }
+    
+    
+    return (time);
   };
+
+  getMessage = (time) => {
+    var message = "";
+    if(time >= 0){
+      message = ("Expires in " + time + " months");
+    }
+    else{
+      message = ("Expired");
+    }
+    return(message);
+  }
 
   render() {
     return (
@@ -61,7 +86,7 @@ class Dashboard extends Component {
                       <div className="stats" status={this.getTime(user)>2?"purple":"red"}>
                         <i className="fa fa-clock-o"></i>
                         {console.log(user)}
-                        Expires in {this.getTime(user)} months
+                        {this.getMessage(this.getTime(user))}
                       </div>
                     </div>
                   </div>
