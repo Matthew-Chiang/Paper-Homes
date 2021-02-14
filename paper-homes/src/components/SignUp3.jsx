@@ -100,10 +100,10 @@ export default function SignUpPage3({page, setPage, data, setData}) {
     return (
         <div>
             <div>
-                <h1>Which of the following <br/>documents do you have?</h1>
-                <p>Don’t worry if you don’t have an ID, we can still match <br/> you with an address and help you get one.</p>
+                <h1 style={{textAlignLast:'center'}}>Which of the following <br/>documents do you have?</h1>
+                <p style={{textAlignLast:'center'}}>Don’t worry if you don’t have an ID, we can still match <br/> you with an address and help you get one.</p>
             </div>
-            <div className={classes.checkboxForm}>
+            <div className={classes.checkboxForm} style={{textAlignLast:'center'}}>
             <FormControl required component="fieldset" className={classes.formControl}>
                 <FormGroup>
                 <FormControlLabel
@@ -139,16 +139,19 @@ export default function SignUpPage3({page, setPage, data, setData}) {
                 </FormGroup>
             </FormControl>
             </div>
-            <div className={classes.nextButtonDiv}> 
+            <div className={classes.nextButtonDiv} style={{textAlignLast:'center'}}> 
                 <Button variant="contained" onClick={saveForm} className={classes.nextButton}>
                     Next
                 </Button>
             </div>
-            <Button
-                // className={classes.button}
-                startIcon={<ArrowBackIcon />}
-                onClick={goBack}
-            >Back</Button>
+            <div style={{textAlignLast:'center'}}>
+                <Button
+                    // className={classes.button}
+                    startIcon={<ArrowBackIcon />}
+                    onClick={goBack}
+                >Back</Button>
+            </div>
+            
         </div>
     );
 }

@@ -93,8 +93,8 @@ export default function SignUpPage3({page, setPage, data, setData}) {
     return (
         <div>
             <div>
-                <h1>Let’s get you an address!</h1>
-                <h3>Matching you with an address...</h3>
+                <h1 style={{textAlignLast:'center'}}>Let’s get you an address!</h1>
+                <h3 style={{textAlignLast:'center'}}>Matching you with an address...</h3>
             </div>
             <div style={{textAlign:"-webkit-center"}}>
                 <div className={classes.root}>
