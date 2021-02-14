@@ -17,7 +17,8 @@ const useStyles = makeStyles((theme) => ({
     },
     signup:{
         textAlign: 'justify',
-        padding: '80px 0px'
+        padding: '80px 0px',
+        paddingBottom: '20px'
     },
     title: {
         // paddingTop: '75px',

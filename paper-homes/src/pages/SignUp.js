@@ -72,6 +72,33 @@ export default function SignUp() {
                         setData={setUser}
                     />
                 );
+            case "donorpage3":
+                return (
+                    <DonorSignUpPage3
+                        page={page}
+                        setPage={setPage}
+                        data={user}
+                        setData={setUser}
+                    />
+                );
+            case "donorpage4":
+                return (
+                    <DonorSignUpPage4
+                        page={page}
+                        setPage={setPage}
+                        data={user}
+                        setData={setUser}
+                    />
+                );
+            // case "donorpage5":
+            //     return (
+            //         <DonorSignUpPage5
+            //             page={page}
+            //             setPage={setPage}
+            //             data={user}
+            //             setData={setUser}
+            //         />
+            //     );
             default:
                 return <div></div>;
         }
