@@ -20,8 +20,8 @@ class Dashboard extends Component {
       <UserContext.Consumer>
         {({ user, setUser }) => (
         <div>
-            <div className="card-header ">
-                <h4 className="card-title">
+            <div className="card-header" style={{marginTop:"25px"}}>
+                <h4 className="card-title" style={{padding:"10px", margin:"0px"}}>
                 <b>{this.props.heading}</b>
                 </h4>
             </div>
@@ -34,10 +34,31 @@ class Dashboard extends Component {
                             color: "#fff",
                             // marginBottom: "20px",
                             // width: "200px",
+                            marginRight: "15px",
+                            padding: "5px 10px",
+                            // fontSize: 10
+                        }}>{this.props.buttonText}</Button>
+                    {this.props.buttonText2 ? <Button variant="contained"
+                        style={{
+                            backgroundColor: "#5C7294",
+                            color: "#fff",
+                            // marginBottom: "20px",
+                            // width: "200px",
                             // marginLeft: "5px",
                             padding: "5px 10px",
-                            fontSize: 10
-                        }}>Documents</Button>
+                            marginRight: "15px",
+                            // fontSize: 10
+                        }}>{this.props.buttonText2}</Button> : null}
+                      {this.props.buttonText3 ? <Button variant="contained"
+                        style={{
+                            backgroundColor: "#5C7294",
+                            color: "#fff",
+                            // marginBottom: "20px",
+                            // width: "200px",
+                            // marginLeft: "5px",
+                            padding: "5px 10px",
+                            // fontSize: 10
+                        }}>{this.props.buttonText3}</Button> : null}
                 </div>
             </div>
         </div>
