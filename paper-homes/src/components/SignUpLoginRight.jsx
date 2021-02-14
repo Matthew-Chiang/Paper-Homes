@@ -56,7 +56,15 @@ const useStyles = makeStyles((theme) => ({
     note: {
         marginTop: '-5px',
         marginLeft: '5px',
-        fontSize: 14
+        fontSize: 14,
+        color: 'black',
+        textDecoration: 'underline',
+        '&:hover': {
+            color: '#ACACAC',
+            textDecoration: 'underline',
+            // borderColor: '#0062cc',
+            // boxShadow: 'none',
+          },
     }
 }));
 
