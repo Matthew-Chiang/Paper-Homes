@@ -145,6 +145,7 @@ class Dashboard extends Component {
                                 </p>
                             </div>
                             <div style={{marginTop:'-5px'}}>
+                                <a href="/documents">
                                 <Button variant="contained"
                                     style={{
                                         backgroundColor: "#5C7294",
@@ -154,7 +155,8 @@ class Dashboard extends Component {
                                         // marginLeft: "5px",
                                         padding: "5px 10px",
                                         fontSize: 10
-                                    }}>Documents</Button>
+                                    }}>Documents</Button></a>
+                                  <a href="https://chsp.org/" target="_blank">
                                 <Button variant="contained"
                                     style={{
                                         backgroundColor: "#5C7294",
@@ -164,7 +166,7 @@ class Dashboard extends Component {
                                         marginLeft: "15px",
                                         padding: "5px 10px",
                                         fontSize: 10
-                                    }}>Your nearest homeless service provider</Button>
+                                    }}>Your nearest homeless service provider</Button></a>
                             </div>
                             </div>
                             
@@ -191,21 +193,13 @@ class Dashboard extends Component {
                           <div className="card-body ">
                               <div>
                                 <p className="description">
-                                Head to{" "}
-                                <a
-                                    href="www.dhcs.ca.gov/"
-                                    style={{
-                                    color: "#1c1c1c",
-                                    }}
-                                >
-                                    www.dhcs.ca.gov
-                                </a>{" "}
-                                to learn more about Medi-Cal and how you can
+                                Learn more about Medi-Cal and how you can
                                 apply.
                                 </p>
                                 </div>
                                 <div>
                                 <div style={{marginTop:'-5px'}}>
+                                <a href="https://www.dhcs.ca.gov/services/medi-cal/pages/applyformedi-cal.aspx" target="_blank">
                                 <Button variant="contained"
                                     style={{
                                         backgroundColor: "#5C7294",
@@ -215,7 +209,7 @@ class Dashboard extends Component {
                                         // marginLeft: "5px",
                                         padding: "5px 10px",
                                         fontSize: 10
-                                    }}>Apply for Governement Benefits</Button>
+                                    }}>Apply for Government Benefits</Button></a>
                             </div>
                                 </div>
                           </div>
@@ -247,6 +241,7 @@ class Dashboard extends Component {
                               </div>
                             
                             <div style={{marginTop:'-5px'}}>
+                              <a href="/documents">
                                 <Button variant="contained"
                                     style={{
                                         backgroundColor: "#5C7294",
@@ -256,7 +251,8 @@ class Dashboard extends Component {
                                         // marginLeft: "5px",
                                         padding: "5px 10px",
                                         fontSize: 10
-                                    }}>Documents</Button>
+                                    }}>Documents</Button></a>
+                                    <a href="https://chsp.org/" target="_blank">
                                 <Button variant="contained"
                                     style={{
                                         backgroundColor: "#5C7294",
@@ -266,7 +262,7 @@ class Dashboard extends Component {
                                         marginLeft: "15px",
                                         padding: "5px 10px",
                                         fontSize: 10
-                                    }}>Your nearest homeless service provider</Button>
+                                    }}>Your nearest homeless service provider</Button></a>
                             </div>
                           </div>
                         </div>
