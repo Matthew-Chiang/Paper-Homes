@@ -89,7 +89,7 @@ router.post("/address/createAddresses", async function (req, res, next) {
     const addresses = req.body.addresses;
     addresses.forEach(async (address) => {
         const docRef = db.collection("address").doc(address.address);
-        await docRef.set(address);
+        await docRef.set({ ...address, numUsed: 0 });
     });
 });
 
